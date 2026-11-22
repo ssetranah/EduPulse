@@ -2,9 +2,12 @@
 
 A secure, modular, multi-tenant educational data platform for U.S. K-12 school networks.
 
-> **Status: Phase 1 — foundation only.** The repository scaffold, CI, local stack, documentation
-> framework and a synthetic-data generator exist. **There is no business logic yet**: no ingestion
-> adapters, dbt models, authentication or analytics. See [`docs/CHANGELOG.md`](docs/CHANGELOG.md).
+> **Status: Phase 2 — multi-source ingestion into Bronze (MVP, synthetic data only).** On top of the
+> Phase 1 scaffold there is now a config-driven ingestion framework (file drops, REST API and four
+> mock source systems → immutable Bronze, with dead-letter handling, retry/backoff and JSON run
+> reports). **Not built yet:** Silver/Gold/dbt models, authentication/RBAC/audit logging, the real
+> API and dashboard views, RAG. Nothing is deployed to any school and no real student data has been
+> processed. See [`docs/CHANGELOG.md`](docs/CHANGELOG.md).
 >
 > **No real student data belongs in this repository.** All data is synthetic and marked
 > `SYNTHETIC_TEST_DATA`. EduPulse implements technical controls *consistent with FERPA-aligned
@@ -34,7 +37,7 @@ Diagrams, layer rules and design decisions: [`docs/architecture.md`](docs/archit
 
 | Directory | Contents |
 |-----------|----------|
-| [`ingestion/`](ingestion/) | Source adapters (later) and the synthetic-data generator (`ingestion/synthetic`) |
+| [`ingestion/`](ingestion/) | Multi-source ingestion framework (connectors, YAML mappings, Bronze, CLI) and the synthetic-data generator (`ingestion/synthetic`) |
 | [`dbt/`](dbt/) | Bronze/Silver/Gold models, tests, docs (skeleton) |
 | [`api/`](api/) | REST API (Phase 1: health/version stub) |
 | [`web/`](web/) | Responsive dashboard (Phase 1: static scaffold) |
@@ -50,7 +53,7 @@ Requirements: Python ≥ 3.11 (and optionally Docker with Compose).
 
 ```bash
 git clone <repo> && cd edupulse-ai
-python -m pip install -e ".[dev]"     # ruff, pytest, pre-commit
+python -m pip install -e ".[dev,excel]"     # runtime deps + ruff, pytest, pytest-cov, pre-commit, openpyxl
 pre-commit install
 cp .env.example .env                  # local placeholders only; never commit .env
 ```
@@ -62,6 +65,18 @@ make synth                  # writes data/synthetic/ (git-ignored)
 make validate-synth
 python -m ingestion.synthetic generate --help     # tenants, schools, students, seed, defect rate…
 ```
+
+### Ingest into Bronze (Phase 2)
+
+```bash
+make synth                                                    # fake source extracts for the file-drop connector
+edupulse ingest --source all --config ingestion/configs/ingestion.yaml
+edupulse ingest --source mock_sis --config ingestion/configs/ingestion.yaml --dry-run
+edupulse verify-bronze --root data/ingestion                  # tamper check
+```
+
+Output lands in `data/ingestion/` (git-ignored): `bronze/`, `dead_letter/`, `runs/<run_id>/run_report.json`.
+Full guide: [`docs/ingestion.md`](docs/ingestion.md); lineage: [`docs/data-lineage.md`](docs/data-lineage.md).
 
 ### Run the stack
 
@@ -80,11 +95,14 @@ Or without Docker: `python -m api.health` and open `web/public/index.html` behin
 make lint            # ruff check + format check
 make test            # everything
 make test-unit       # also: test-integration, test-dq
+make coverage        # pytest-cov (coverage.py) on the ingestion package
 make evidence        # regenerate evidence/phase-1/ (tests, lint, metrics, samples)
+make evidence-phase2 # regenerate evidence/phase-2/ (ingestion runs, reports, CLI output, coverage)
 ```
 
-CI (`.github/workflows/ci.yml`) runs lint, the three test groups on Python 3.11–3.13, a
-synthetic-data generate+validate smoke test and `docker compose config` validation.
+CI (`.github/workflows/ci.yml`) runs lint, the three test groups on Python 3.11–3.13, a coverage
+job, a synthetic-data generate+validate smoke test, an ingestion smoke test (generate → ingest →
+verify Bronze) and `docker compose config` validation. CI has not yet run on GitHub.
 
 ## Deployment path
 

@@ -1,0 +1,26 @@
+$ edupulse ingest --source mock_sis --config <repo>/evidence/phase-2/demo_config.yaml --dry-run --run-id evidence-dry --override sources.mock_sis.mock.as_of=2026-01-20T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-20T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-20T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-20T00:00:00
+
+--- stdout ---
+Run evidence-dry  status=NO_NEW_DATA  dry_run=True
+SOURCE / ENTITY                               STATUS                      recv     acc     rej     dup    unch   xform    load   retry    secs
+----------------------------------------------------------------------------------------------------------------------------------------------
+mock_sis / schools                            NO_NEW_DATA                    1       1       0       0       1       1       0       1    0.10
+mock_sis / students                           NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.01
+  = mock_sis total                            NO_NEW_DATA                    2       2       0       0       2       2       0       1    0.12
+----------------------------------------------------------------------------------------------------------------------------------------------
+RUN TOTAL                                     NO_NEW_DATA                    2       2       0       0       2       2       0       1    0.12
+
+run report:        data/ingestion/runs/evidence-dry/run_report.json
+validation report: data/ingestion/runs/evidence-dry/validation_report.json
+
+--- stderr ---
+[INFO   ] run_started
+[INFO   ] source_started source=mock_sis
+[INFO   ] entity_started source=mock_sis entity=schools
+[INFO   ] entity_finished source=mock_sis entity=schools status=NO_NEW_DATA received=1 loaded=0 rejected=0 reason=None
+[INFO   ] entity_started source=mock_sis entity=students
+[INFO   ] entity_finished source=mock_sis entity=students status=NO_NEW_DATA received=1 loaded=0 rejected=0 reason=None
+[INFO   ] source_finished source=mock_sis status=NO_NEW_DATA
+[INFO   ] run_finished status=NO_NEW_DATA received=2 loaded=0 rejected=0
+
+--- exit code: 0 ---

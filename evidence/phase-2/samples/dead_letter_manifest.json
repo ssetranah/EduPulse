@@ -1,0 +1,15 @@
+{
+  "batch_id": "evidence-run-2-students",
+  "batch_status": "SUCCEEDED_WITH_REJECTS",
+  "bronze_table": "sis_students",
+  "errors_by_code": {
+    "MISSING_REQUIRED": 3,
+    "TYPE_COERCION_FAILED": 2
+  },
+  "rows": 5,
+  "run_id": "evidence-run-2",
+  "sensitivity": "restricted: contains raw source values",
+  "sha256": "e1d7c70d819f032358709afed58fe385ea37b12b39331f87521eaa9fe0c18ae5",
+  "source_entity": "students",
+  "source_name": "mock_sis"
+}

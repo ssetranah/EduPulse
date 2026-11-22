@@ -1,0 +1,18 @@
+# Mock assessment platform -> Bronze `assessment_definitions`.
+entity: assessment_definitions
+bronze_table: assessment_definitions
+schema_version: "1.0.0"
+primary_key: [tenant_id, assessment_id]
+incremental_field: source_modified_at
+fields:
+  - {source: TenantCode, target: tenant_id, required: true}
+  - {source: AssessmentCode, target: assessment_id, required: true}
+  - {source: AssessmentTitle, target: assessment_name, required: true}
+  - {source: SubjectArea, target: subject, required: true, case: upper}
+  - {source: Window, target: administration_window, required: true}
+  - {source: WindowOpens, target: window_start, type: date, formats: ["%m/%d/%Y"], required: true}
+  - {source: WindowCloses, target: window_end, type: date, formats: ["%m/%d/%Y"], required: true}
+  - {source: MinScale, target: scale_min, type: integer, required: true}
+  - {source: MaxScale, target: scale_max, type: integer, required: true}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: UpdatedAt, target: source_modified_at, type: datetime, required: true}

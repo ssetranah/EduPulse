@@ -1,0 +1,26 @@
+# Mock assessment platform -> Bronze `assessment_results`.
+# "N/A" scores are nulls (not errors): a student who did not complete has no score.
+entity: assessment_results
+bronze_table: assessment_results
+schema_version: "1.0.0"
+primary_key: [tenant_id, result_id]
+incremental_field: source_modified_at
+fields:
+  - {source: TenantCode, target: tenant_id, required: true}
+  - {source: SchoolCode, target: school_id, required: true}
+  - {source: StudentRef, target: student_id, required: true, sensitivity: confidential}
+  - {source: ResultId, target: result_id, required: true}
+  - {source: AssessmentCode, target: assessment_id, required: true}
+  - {source: TestDate, target: administered_date, type: date, formats: ["%m/%d/%Y"], required: true}
+  - {source: GradeLevel, target: grade_level, required: true}
+  - source: Status
+    target: completion_status
+    required: true
+    value_map: {C: COMPLETED, NC: NOT_COMPLETED, EX: EXCUSED}
+  - {source: ScaleScore, target: scale_score, type: integer, min: 0, max: 1000, sensitivity: confidential}
+  - source: PerformanceLevel
+    target: proficiency_band
+    case: upper
+    value_map: {"BELOW BASIC": BELOW_BASIC, BASIC: BASIC, PROFICIENT: PROFICIENT, ADVANCED: ADVANCED}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: UpdatedAt, target: source_modified_at, type: datetime, required: true}

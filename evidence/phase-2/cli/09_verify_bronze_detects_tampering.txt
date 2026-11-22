@@ -1,0 +1,8 @@
+$ edupulse verify-bronze --root tampered
+
+--- stdout ---
+PROBLEM: tenant_id=tenant-syn-01/source=mock_lms/table=lms_activity/batch_id=evidence-run-1-lms_activity: checksum mismatch in part-00000.jsonl
+
+--- stderr ---
+
+--- exit code: 1 ---

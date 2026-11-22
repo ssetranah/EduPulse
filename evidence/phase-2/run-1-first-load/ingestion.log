@@ -1,0 +1,36 @@
+{"ts": "2026-11-22T01:37:48.579+00:00", "level": "INFO", "event": "run_started", "run_id": "evidence-run-1", "sources": "file_drop_synthetic,rest_sis_api,mock_sis,mock_lms,mock_assessment,mock_attendance", "dry_run": false}
+{"ts": "2026-11-22T01:37:48.579+00:00", "level": "INFO", "event": "source_started", "source": "file_drop_synthetic", "connector": "file_drop"}
+{"ts": "2026-11-22T01:37:48.583+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "students", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:48.618+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "students", "status": "SUCCEEDED", "received": 360, "loaded": 360, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:48.621+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "grades", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:48.797+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "grades", "status": "SUCCEEDED", "received": 2880, "loaded": 2880, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:48.800+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "assessment_definitions", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:48.804+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "assessment_definitions", "status": "SUCCEEDED", "received": 8, "loaded": 8, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:48.804+00:00", "level": "INFO", "event": "source_finished", "source": "file_drop_synthetic", "status": "SUCCEEDED"}
+{"ts": "2026-11-22T01:37:48.812+00:00", "level": "INFO", "event": "source_started", "source": "rest_sis_api", "connector": "rest_api"}
+{"ts": "2026-11-22T01:37:48.817+00:00", "level": "INFO", "event": "entity_started", "source": "rest_sis_api", "entity": "students", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:48.869+00:00", "level": "INFO", "event": "entity_finished", "source": "rest_sis_api", "entity": "students", "status": "SUCCEEDED", "received": 360, "loaded": 360, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:48.869+00:00", "level": "INFO", "event": "source_finished", "source": "rest_sis_api", "status": "SUCCEEDED"}
+{"ts": "2026-11-22T01:37:48.869+00:00", "level": "INFO", "event": "source_started", "source": "mock_sis", "connector": "mock_sis"}
+{"ts": "2026-11-22T01:37:48.872+00:00", "level": "INFO", "event": "entity_started", "source": "mock_sis", "entity": "schools", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:48.980+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_sis", "entity": "schools", "status": "SUCCEEDED", "received": 4, "loaded": 4, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:48.984+00:00", "level": "INFO", "event": "entity_started", "source": "mock_sis", "entity": "students", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.015+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_sis", "entity": "students", "status": "SUCCEEDED_WITH_REJECTS", "received": 181, "loaded": 179, "rejected": 2, "reason": null}
+{"ts": "2026-11-22T01:37:49.016+00:00", "level": "INFO", "event": "source_finished", "source": "mock_sis", "status": "COMPLETED_WITH_REJECTS"}
+{"ts": "2026-11-22T01:37:49.016+00:00", "level": "INFO", "event": "source_started", "source": "mock_lms", "connector": "mock_lms"}
+{"ts": "2026-11-22T01:37:49.020+00:00", "level": "INFO", "event": "entity_started", "source": "mock_lms", "entity": "lms_activity", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.265+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_lms", "entity": "lms_activity", "status": "SUCCEEDED", "received": 3459, "loaded": 3417, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:49.265+00:00", "level": "INFO", "event": "source_finished", "source": "mock_lms", "status": "SUCCEEDED"}
+{"ts": "2026-11-22T01:37:49.265+00:00", "level": "INFO", "event": "source_started", "source": "mock_assessment", "connector": "mock_assessment"}
+{"ts": "2026-11-22T01:37:49.268+00:00", "level": "INFO", "event": "entity_started", "source": "mock_assessment", "entity": "assessment_definitions", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.272+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_assessment", "entity": "assessment_definitions", "status": "SUCCEEDED", "received": 5, "loaded": 5, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:49.275+00:00", "level": "INFO", "event": "entity_started", "source": "mock_assessment", "entity": "assessment_results", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.336+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_assessment", "entity": "assessment_results", "status": "SUCCEEDED", "received": 721, "loaded": 721, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:49.337+00:00", "level": "INFO", "event": "source_finished", "source": "mock_assessment", "status": "SUCCEEDED"}
+{"ts": "2026-11-22T01:37:49.337+00:00", "level": "INFO", "event": "source_started", "source": "mock_attendance", "connector": "mock_attendance_intervention"}
+{"ts": "2026-11-22T01:37:49.339+00:00", "level": "INFO", "event": "entity_started", "source": "mock_attendance", "entity": "attendance_daily", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.866+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_attendance", "entity": "attendance_daily", "status": "SUCCEEDED_WITH_REJECTS", "received": 5401, "loaded": 5372, "rejected": 29, "reason": null}
+{"ts": "2026-11-22T01:37:49.869+00:00", "level": "INFO", "event": "entity_started", "source": "mock_attendance", "entity": "interventions", "strategy": "watermark", "since": null}
+{"ts": "2026-11-22T01:37:49.876+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_attendance", "entity": "interventions", "status": "SUCCEEDED", "received": 24, "loaded": 24, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:49.876+00:00", "level": "INFO", "event": "source_finished", "source": "mock_attendance", "status": "COMPLETED_WITH_REJECTS"}
+{"ts": "2026-11-22T01:37:49.877+00:00", "level": "INFO", "event": "run_finished", "run_id": "evidence-run-1", "status": "COMPLETED_WITH_REJECTS", "received": 13403, "loaded": 13330, "rejected": 31}

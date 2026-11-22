@@ -1,0 +1,8 @@
+$ edupulse verify-bronze --root data/ingestion
+
+--- stdout ---
+bronze verified: all batch checksums and row counts match
+
+--- stderr ---
+
+--- exit code: 0 ---

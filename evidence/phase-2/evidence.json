@@ -1,0 +1,465 @@
+{
+  "phase": 2,
+  "collected_at_utc": "2026-11-22T01:37:46+00:00",
+  "environment": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "tools_available": {
+      "ruff": true,
+      "docker_cli": true,
+      "dbt": false,
+      "duckdb": false,
+      "fastapi": false
+    }
+  },
+  "tests": {
+    "unit": {
+      "tests": 146,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.8,
+      "passed": true
+    },
+    "integration": {
+      "tests": 152,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 21.41,
+      "passed": true
+    },
+    "data_quality": {
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.85,
+      "passed": true
+    },
+    "all": {
+      "tests": 319,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 24.26,
+      "passed": true
+    }
+  },
+  "lint": {
+    "status": "pass",
+    "ruff_version": "ruff 0.16.9",
+    "check_ok": true,
+    "format_ok": true
+  },
+  "synthetic_data": {
+    "marker": "SYNTHETIC_TEST_DATA",
+    "config": {
+      "seed": 20260101,
+      "tenants": 2,
+      "schools_per_tenant": 3,
+      "students_per_school": 60,
+      "school_year_start": 2025,
+      "attendance_days": 30,
+      "lms_events_per_student": 20,
+      "defect_rate": 0.0
+    },
+    "total_rows": 22372,
+    "rows_per_file": {
+      "sis/schools.csv": 6,
+      "sis/students.csv": 360,
+      "assessment/assessment_definitions.csv": 8,
+      "assessment/assessment_results.csv": 1440,
+      "attendance/attendance_daily.csv": 10800,
+      "grading/grades.jsonl": 2880,
+      "lms/lms_activity.jsonl": 6832,
+      "intervention/interventions.csv": 46
+    },
+    "validator_problems": [],
+    "deterministic_across_runs": true,
+    "files_sha256": {
+      "sis/schools.csv": "60d7553a771f2ac1b8666276528b2f9fe30ef7093d2d5f806f9e0605d3aa7e88",
+      "sis/students.csv": "cbcacb4e084957dbbabfcf0236019dba72c19970bb9d234f6c6f2828708e9b82",
+      "assessment/assessment_definitions.csv": "9fdc558da8bd03335a57ce302e21fea5aecf8c9c0194a1fc9ae56e96a8b8a343",
+      "assessment/assessment_results.csv": "160a85ef2f59e3a8239804b7569064602ed8037cb9f0fa2ca2ee9c3d93e3bbdc",
+      "attendance/attendance_daily.csv": "da48e61b84ecf7053b0cbc5fc811c8e5b8cc85df5693e3f7ad6905958e4a607d",
+      "grading/grades.jsonl": "3fa7fb630d5a39dd6277f7ba29bbec36535042080a38cf6bc0eed7506eac23d4",
+      "lms/lms_activity.jsonl": "6e2d4d1039e303d5809ec36e04b6ab20f5f0b896da7396646686cfd88c976342",
+      "intervention/interventions.csv": "17558a07e0d063e82a70592ab6bef4ae38e7e7fa7c89298dcbb06d7932ba133c"
+    }
+  },
+  "docker_compose": {
+    "config_valid": true,
+    "config_stderr": null,
+    "docker_daemon_reachable": false,
+    "images_built_or_run": "not_run"
+  },
+  "dbt": {
+    "parse": "not_run",
+    "reason": "dbt CLI not installed in this environment"
+  },
+  "ci": {
+    "github_actions_run": "not_run",
+    "reason": "repository not pushed to GitHub"
+  },
+  "screenshots": [],
+  "ingestion": {
+    "scenarios": {
+      "run-1-first-load": {
+        "exit_code": 0,
+        "run_id": "evidence-run-1",
+        "status": "COMPLETED_WITH_REJECTS",
+        "records": {
+          "received": 13403,
+          "accepted": 13372,
+          "rejected": 31,
+          "duplicates": 42,
+          "unchanged_skipped": 0,
+          "transformed": 13372,
+          "loaded": 13330,
+          "retries": 1
+        },
+        "duration_seconds": 1.3059,
+        "by_source": {
+          "file_drop_synthetic": {
+            "status": "SUCCEEDED",
+            "received": 3248,
+            "accepted": 3248,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 3248,
+            "loaded": 3248,
+            "retries": 0,
+            "seconds": 0.2257
+          },
+          "rest_sis_api": {
+            "status": "SUCCEEDED",
+            "received": 360,
+            "accepted": 360,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 360,
+            "loaded": 360,
+            "retries": 0,
+            "seconds": 0.0642
+          },
+          "mock_sis": {
+            "status": "COMPLETED_WITH_REJECTS",
+            "received": 185,
+            "accepted": 183,
+            "rejected": 2,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 183,
+            "loaded": 183,
+            "retries": 1,
+            "seconds": 0.1468
+          },
+          "mock_lms": {
+            "status": "SUCCEEDED",
+            "received": 3459,
+            "accepted": 3459,
+            "rejected": 0,
+            "duplicates": 42,
+            "unchanged_skipped": 0,
+            "transformed": 3459,
+            "loaded": 3417,
+            "retries": 0,
+            "seconds": 0.2493
+          },
+          "mock_assessment": {
+            "status": "SUCCEEDED",
+            "received": 726,
+            "accepted": 726,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 726,
+            "loaded": 726,
+            "retries": 0,
+            "seconds": 0.0714
+          },
+          "mock_attendance": {
+            "status": "COMPLETED_WITH_REJECTS",
+            "received": 5425,
+            "accepted": 5396,
+            "rejected": 29,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 5396,
+            "loaded": 5396,
+            "retries": 0,
+            "seconds": 0.5396
+          }
+        }
+      },
+      "run-2-incremental": {
+        "exit_code": 0,
+        "run_id": "evidence-run-2",
+        "status": "COMPLETED_WITH_REJECTS",
+        "records": {
+          "received": 9904,
+          "accepted": 9876,
+          "rejected": 28,
+          "duplicates": 28,
+          "unchanged_skipped": 8,
+          "transformed": 9876,
+          "loaded": 9840,
+          "retries": 1
+        },
+        "duration_seconds": 1.0862,
+        "by_source": {
+          "file_drop_synthetic": {
+            "status": "NO_NEW_DATA",
+            "received": 0,
+            "accepted": 0,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 0,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0183
+          },
+          "rest_sis_api": {
+            "status": "NO_NEW_DATA",
+            "received": 1,
+            "accepted": 1,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 1,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0236
+          },
+          "mock_sis": {
+            "status": "COMPLETED_WITH_REJECTS",
+            "received": 187,
+            "accepted": 182,
+            "rejected": 5,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 182,
+            "loaded": 180,
+            "retries": 1,
+            "seconds": 0.136
+          },
+          "mock_lms": {
+            "status": "SUCCEEDED",
+            "received": 3444,
+            "accepted": 3444,
+            "rejected": 0,
+            "duplicates": 28,
+            "unchanged_skipped": 1,
+            "transformed": 3444,
+            "loaded": 3415,
+            "retries": 0,
+            "seconds": 0.2465
+          },
+          "mock_assessment": {
+            "status": "SUCCEEDED",
+            "received": 736,
+            "accepted": 736,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 736,
+            "loaded": 734,
+            "retries": 0,
+            "seconds": 0.1091
+          },
+          "mock_attendance": {
+            "status": "COMPLETED_WITH_REJECTS",
+            "received": 5536,
+            "accepted": 5513,
+            "rejected": 23,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 5513,
+            "loaded": 5511,
+            "retries": 0,
+            "seconds": 0.5514
+          }
+        }
+      },
+      "run-3-no-change": {
+        "exit_code": 0,
+        "run_id": "evidence-run-3",
+        "status": "NO_NEW_DATA",
+        "records": {
+          "received": 8,
+          "accepted": 8,
+          "rejected": 0,
+          "duplicates": 0,
+          "unchanged_skipped": 8,
+          "transformed": 8,
+          "loaded": 0,
+          "retries": 1
+        },
+        "duration_seconds": 0.3055,
+        "by_source": {
+          "file_drop_synthetic": {
+            "status": "NO_NEW_DATA",
+            "received": 0,
+            "accepted": 0,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 0,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0167
+          },
+          "rest_sis_api": {
+            "status": "NO_NEW_DATA",
+            "received": 1,
+            "accepted": 1,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 1,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0228
+          },
+          "mock_sis": {
+            "status": "NO_NEW_DATA",
+            "received": 2,
+            "accepted": 2,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 2,
+            "loaded": 0,
+            "retries": 1,
+            "seconds": 0.1168
+          },
+          "mock_lms": {
+            "status": "NO_NEW_DATA",
+            "received": 1,
+            "accepted": 1,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 1,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0349
+          },
+          "mock_assessment": {
+            "status": "NO_NEW_DATA",
+            "received": 2,
+            "accepted": 2,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 2,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0228
+          },
+          "mock_attendance": {
+            "status": "NO_NEW_DATA",
+            "received": 2,
+            "accepted": 2,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 2,
+            "transformed": 2,
+            "loaded": 0,
+            "retries": 0,
+            "seconds": 0.0905
+          }
+        }
+      },
+      "dry_run": {
+        "exit_code": 0
+      },
+      "error_cases": {
+        "unknown_source_exit": 2,
+        "invalid_config_exit": 2
+      }
+    },
+    "checks": {
+      "synthetic_generated": true,
+      "run-1-first-load_invariants_hold": true,
+      "run-1-first-load_report_files_contain_no_record_values": true,
+      "run-1-first-load_values_scanned": 1280,
+      "run-2-incremental_invariants_hold": true,
+      "run-2-incremental_report_files_contain_no_record_values": true,
+      "run-2-incremental_values_scanned": 1280,
+      "run-3-no-change_invariants_hold": true,
+      "run-3-no-change_report_files_contain_no_record_values": true,
+      "run-3-no-change_values_scanned": 1280,
+      "bronze_verifies_clean": true,
+      "tampering_detected": true
+    },
+    "commands": [
+      {
+        "name": "01_generate_synthetic",
+        "command": "python -m ingestion.synthetic generate --out data/synthetic",
+        "exit_code": 0
+      },
+      {
+        "name": "02_ingest_all_first_load",
+        "command": "edupulse ingest --source all --config <repo>/evidence/phase-2/demo_config.yaml --run-id evidence-run-1 --override sources.mock_sis.mock.as_of=2026-01-06T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-06T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-06T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-06T00:00:00 --override sources.rest_sis_api.base_url=http://127.0.0.1:44605",
+        "exit_code": 0
+      },
+      {
+        "name": "03_ingest_all_incremental",
+        "command": "edupulse ingest --source all --config <repo>/evidence/phase-2/demo_config.yaml --run-id evidence-run-2 --override sources.mock_sis.mock.as_of=2026-01-20T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-20T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-20T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-20T00:00:00 --override sources.rest_sis_api.base_url=http://127.0.0.1:44605",
+        "exit_code": 0
+      },
+      {
+        "name": "04_ingest_all_rerun_idempotent",
+        "command": "edupulse ingest --source all --config <repo>/evidence/phase-2/demo_config.yaml --run-id evidence-run-3 --override sources.mock_sis.mock.as_of=2026-01-20T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-20T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-20T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-20T00:00:00 --override sources.rest_sis_api.base_url=http://127.0.0.1:44605",
+        "exit_code": 0
+      },
+      {
+        "name": "05_ingest_dry_run",
+        "command": "edupulse ingest --source mock_sis --config <repo>/evidence/phase-2/demo_config.yaml --dry-run --run-id evidence-dry --override sources.mock_sis.mock.as_of=2026-01-20T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-20T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-20T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-20T00:00:00",
+        "exit_code": 0
+      },
+      {
+        "name": "06_error_unknown_source",
+        "command": "edupulse ingest --source does_not_exist --config <repo>/evidence/phase-2/demo_config.yaml",
+        "exit_code": 2
+      },
+      {
+        "name": "07_error_invalid_config",
+        "command": "edupulse ingest --source all --config <workdir>/bad.yaml",
+        "exit_code": 2
+      },
+      {
+        "name": "08_verify_bronze_ok",
+        "command": "edupulse verify-bronze --root data/ingestion",
+        "exit_code": 0
+      },
+      {
+        "name": "09_verify_bronze_detects_tampering",
+        "command": "edupulse verify-bronze --root tampered",
+        "exit_code": 1
+      },
+      {
+        "name": "10_help",
+        "command": "edupulse ingest --help",
+        "exit_code": 0
+      }
+    ]
+  },
+  "coverage": {
+    "status": "ok",
+    "tool": "evidence/line_coverage.py (sys.monitoring, line coverage)",
+    "total_percent_ingestion_package": 95.0,
+    "phase2_framework_percent_excluding_synthetic": 96.4,
+    "limitations": [
+      "line coverage only; no branch coverage",
+      "subprocess code (CLI subprocess tests) is not measured",
+      "executable-line model may differ slightly from coverage.py",
+      "authoritative CI measurement: pytest --cov (coverage.py), see `make coverage`"
+    ]
+  }
+}

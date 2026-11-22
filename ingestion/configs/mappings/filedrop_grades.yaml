@@ -1,0 +1,18 @@
+# File drop (JSON Lines gradebook export) -> Bronze `grades`.
+entity: grades
+bronze_table: grades
+schema_version: "1.0.0"
+primary_key: [tenant_id, grade_record_id]
+incremental_field: posted_at
+fields:
+  - {source: tenant_id, target: tenant_id, required: true}
+  - {source: school_id, target: school_id, required: true}
+  - {source: student_id, target: student_id, required: true, sensitivity: confidential}
+  - {source: grade_record_id, target: grade_record_id, required: true}
+  - {source: course_code, target: course_code, required: true}
+  - {source: course_title, target: course_title}
+  - {source: reporting_period, target: reporting_period, required: true}
+  - {source: numeric_grade, target: numeric_grade, type: float, min: 0, max: 100, sensitivity: confidential}
+  - {source: letter_grade, target: letter_grade, allowed_values: [A, B, C, D, F], sensitivity: confidential}
+  - {source: posted_at, target: posted_at, type: datetime, required: true}
+  - {source: synthetic_marker, target: synthetic_marker, required: true}

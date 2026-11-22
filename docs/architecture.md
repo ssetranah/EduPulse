@@ -90,7 +90,7 @@ Each has a short ADR in [`docs/adr/`](adr/):
 | Synthetic-only repository | Generator + validator + CI guard; PII-pattern scan; `.env`/`data/` blocked by git ignore and pre-commit. | **Built** |
 | AI guardrails | RAG limited to approved institutional documents; no student-level indexing; outputs advisory, with citations. | Planned |
 
-## 4. Phase 1 build status
+## 4. Build status (Phase 1 + Phase 2)
 
 | Component | Status | Where |
 |-----------|--------|-------|
@@ -100,7 +100,8 @@ Each has a short ADR in [`docs/adr/`](adr/):
 | Dashboard scaffold | **Built** (static page) | `web/public/` |
 | Compose stack, Dockerfiles | **Written; not run** (no Docker daemon in the build environment — see evidence manifest) | `docker-compose.yml`, `infra/docker/` |
 | dbt project skeleton | **Written; not run** (dbt not installable in the build environment) | `dbt/` |
-| Ingestion adapters, Bronze/Silver/Gold models | Planned | — |
+| Multi-source ingestion framework: 6 connectors, YAML mapping, Bronze (immutable, tenant-partitioned), dead letter, retry/backoff, run reports, CLI (Phase 2) | **Built** — tested on synthetic data and mock systems only | `ingestion/`, [`docs/ingestion.md`](ingestion.md), [`docs/data-lineage.md`](data-lineage.md) |
+| Silver/Gold models (dbt) | Planned | — |
 | AuthN/RBAC, audit log, masking | Planned | — |
 | RAG, predictive models | Planned | — |
 

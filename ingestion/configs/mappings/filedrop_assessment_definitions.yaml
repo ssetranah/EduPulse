@@ -1,0 +1,16 @@
+# File drop (CSV or Excel workbook) -> Bronze `assessment_definitions`.
+entity: assessment_definitions
+bronze_table: assessment_definitions
+schema_version: "1.0.0"
+primary_key: [tenant_id, assessment_id]
+fields:
+  - {source: tenant_id, target: tenant_id, required: true}
+  - {source: assessment_id, target: assessment_id, required: true}
+  - {source: assessment_name, target: assessment_name, required: true}
+  - {source: subject, target: subject, required: true}
+  - {source: administration_window, target: administration_window, required: true}
+  - {source: window_start, target: window_start, type: date, required: true}
+  - {source: window_end, target: window_end, type: date, required: true}
+  - {source: scale_min, target: scale_min, type: integer, required: true}
+  - {source: scale_max, target: scale_max, type: integer, required: true}
+  - {source: synthetic_marker, target: synthetic_marker, required: true}

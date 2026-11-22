@@ -1,0 +1,74 @@
+# EduPulse ingestion configuration (all data below is SYNTHETIC_TEST_DATA).
+#
+#   edupulse ingest --source all --config ingestion/configs/ingestion.yaml
+#
+# Paths: `mapping` is relative to THIS file; `drop_dir` and `storage.root` are relative to the
+# current working directory. Secrets are never written here -- auth uses an env var NAME.
+version: 1
+
+storage:
+  root: data/ingestion
+
+defaults:
+  retry: {max_attempts: 4, base_delay_seconds: 0.5, max_delay_seconds: 30, multiplier: 2.0, jitter: true}
+  quality_gate: {max_reject_ratio: 0.10, min_records: 10}
+
+sources:
+  # 1. CSV / JSON Lines / Excel file drops (generate with: edupulse-synth --output data/synthetic)
+  file_drop_synthetic:
+    type: file_drop
+    system: {system: FILE_DROP, vendor: Synthetic Labs, product: Nightly extract drop, description: Phase 1 synthetic extracts}
+    tenant_id: null
+    drop_dir: data/synthetic
+    entities:
+      - {name: students, mapping: mappings/filedrop_students.yaml, file_pattern: "sis/students.csv", format: csv}
+      - {name: grades, mapping: mappings/filedrop_grades.yaml, file_pattern: "grading/grades.jsonl", format: jsonl}
+      - {name: assessment_definitions, mapping: mappings/filedrop_assessment_definitions.yaml, file_pattern: "assessment/assessment_definitions.*", format: auto}
+
+  # 2. JSON REST API (disabled by default; start the mock server first:
+  #    python -m ingestion.synthetic.rest_server --port 8765)
+  rest_sis_api:
+    type: rest_api
+    enabled: false
+    system: {system: SIS, vendor: Mock Vendor, product: REST SIS API, version: "v1"}
+    base_url: http://127.0.0.1:8765
+    auth: {type: none}
+    entities:
+      - name: students
+        mapping: mappings/sis_students.yaml
+        path: /v1/students
+        records_path: data
+        since_param: updated_since
+        pagination: {type: page, page_size: 200}
+
+  # 3-6. Mock vendor systems (in-process, deterministic, synthetic)
+  mock_sis:
+    type: mock_sis
+    system: {system: SIS, vendor: Mock Vendor, product: Mock SIS, version: "1.0"}
+    mock: {seed: 20260101, tenants: 2, schools_per_tenant: 3, students_per_school: 60}
+    entities:
+      - {name: schools, mapping: mappings/sis_schools.yaml}
+      - {name: students, mapping: mappings/sis_students.yaml}
+
+  mock_lms:
+    type: mock_lms
+    system: {system: LMS, vendor: Mock Vendor, product: Mock LMS, version: "1.0"}
+    mock: {seed: 20260101, tenants: 2, schools_per_tenant: 3, students_per_school: 60, lms_events_per_student: 20}
+    entities:
+      - {name: lms_activity, mapping: mappings/lms_activity.yaml}
+
+  mock_assessment:
+    type: mock_assessment
+    system: {system: ASSESSMENT, vendor: Mock Vendor, product: Mock Assessment Platform, version: "1.0"}
+    mock: {seed: 20260101, tenants: 2, schools_per_tenant: 3, students_per_school: 60}
+    entities:
+      - {name: assessment_definitions, mapping: mappings/assessment_definitions.yaml}
+      - {name: assessment_results, mapping: mappings/assessment_results.yaml}
+
+  mock_attendance:
+    type: mock_attendance_intervention
+    system: {system: ATTENDANCE_INTERVENTION, vendor: Mock Vendor, product: Mock Attendance & Intervention, version: "1.0"}
+    mock: {seed: 20260101, tenants: 2, schools_per_tenant: 3, students_per_school: 60, attendance_days: 30}
+    entities:
+      - {name: attendance_daily, mapping: mappings/attendance_daily.yaml}
+      - {name: interventions, mapping: mappings/interventions.yaml}

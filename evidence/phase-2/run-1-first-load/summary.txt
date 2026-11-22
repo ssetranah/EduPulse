@@ -1,0 +1,22 @@
+Run evidence-run-1  status=COMPLETED_WITH_REJECTS  dry_run=False
+SOURCE / ENTITY                               STATUS                      recv     acc     rej     dup    unch   xform    load   retry    secs
+----------------------------------------------------------------------------------------------------------------------------------------------
+file_drop_synthetic / students                SUCCEEDED                    360     360       0       0       0     360     360       0    0.04
+file_drop_synthetic / grades                  SUCCEEDED                   2880    2880       0       0       0    2880    2880       0    0.18
+file_drop_synthetic / assessment_definitions  SUCCEEDED                      8       8       0       0       0       8       8       0    0.01
+  = file_drop_synthetic total                 SUCCEEDED                   3248    3248       0       0       0    3248    3248       0    0.23
+rest_sis_api / students                       SUCCEEDED                    360     360       0       0       0     360     360       0    0.06
+  = rest_sis_api total                        SUCCEEDED                    360     360       0       0       0     360     360       0    0.06
+mock_sis / schools                            SUCCEEDED                      4       4       0       0       0       4       4       1    0.11
+mock_sis / students                           SUCCEEDED_WITH_REJECTS       181     179       2       0       0     179     179       0    0.04
+  = mock_sis total                            COMPLETED_WITH_REJECTS       185     183       2       0       0     183     183       1    0.15
+mock_lms / lms_activity                       SUCCEEDED                   3459    3459       0      42       0    3459    3417       0    0.25
+  = mock_lms total                            SUCCEEDED                   3459    3459       0      42       0    3459    3417       0    0.25
+mock_assessment / assessment_definitions      SUCCEEDED                      5       5       0       0       0       5       5       0    0.01
+mock_assessment / assessment_results          SUCCEEDED                    721     721       0       0       0     721     721       0    0.06
+  = mock_assessment total                     SUCCEEDED                    726     726       0       0       0     726     726       0    0.07
+mock_attendance / attendance_daily            SUCCEEDED_WITH_REJECTS      5401    5372      29       0       0    5372    5372       0    0.53
+mock_attendance / interventions               SUCCEEDED                     24      24       0       0       0      24      24       0    0.01
+  = mock_attendance total                     COMPLETED_WITH_REJECTS      5425    5396      29       0       0    5396    5396       0    0.54
+----------------------------------------------------------------------------------------------------------------------------------------------
+RUN TOTAL                                     COMPLETED_WITH_REJECTS     13403   13372      31      42       0   13372   13330       1    1.31

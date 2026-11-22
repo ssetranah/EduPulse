@@ -1,0 +1,38 @@
+{
+  "batch_id": "evidence-run-1-students",
+  "bronze_table": "sis_students",
+  "data_origin": "SYNTHETIC_TEST_DATA",
+  "field_sensitivity": {
+    "birth_date": "restricted",
+    "economically_disadvantaged": "confidential",
+    "english_learner": "confidential",
+    "enrollment_start_date": "internal",
+    "enrollment_status": "internal",
+    "first_name": "restricted",
+    "gender": "confidential",
+    "grade_level": "internal",
+    "last_name": "restricted",
+    "race_ethnicity": "confidential",
+    "school_id": "internal",
+    "special_education": "restricted",
+    "state_student_id": "confidential",
+    "student_id": "confidential",
+    "synthetic_marker": "internal",
+    "tenant_id": "internal"
+  },
+  "ingestion_ts": "2026-11-22T01:37:48Z",
+  "parts": [
+    {
+      "file": "part-00000.jsonl",
+      "rows": 180,
+      "sha256": "68abfa4b8659753fdc6e851e8237c89a6fb160d9231ec6b39c8f4aa6cd0c5c6a"
+    }
+  ],
+  "rows": 180,
+  "run_id": "evidence-run-1",
+  "schema_version": "1.0.0",
+  "source_entity": "students",
+  "source_name": "file_drop_synthetic",
+  "source_system": "FILE_DROP",
+  "tenant_id": "tenant-syn-01"
+}

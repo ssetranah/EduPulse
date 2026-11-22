@@ -1,0 +1,20 @@
+# Mock intervention tracker -> Bronze `interventions`. Empty EndDate means still open.
+entity: interventions
+bronze_table: interventions
+schema_version: "1.0.0"
+primary_key: [tenant_id, intervention_id]
+incremental_field: source_modified_at
+fields:
+  - {source: Tenant, target: tenant_id, required: true}
+  - {source: School, target: school_id, required: true}
+  - {source: Student, target: student_id, required: true, sensitivity: confidential}
+  - {source: InterventionId, target: intervention_id, required: true}
+  - {source: Program, target: intervention_type, required: true}
+  - {source: Focus, target: subject_focus}
+  - {source: Tier, target: tier, required: true, value_map: {"1": TIER_1, "2": TIER_2, "3": TIER_3}}
+  - {source: BeginDate, target: start_date, type: date, required: true}
+  - {source: EndDate, target: end_date, type: date}
+  - {source: State, target: status, required: true, case: upper, allowed_values: [ACTIVE, COMPLETED, DISCONTINUED]}
+  - {source: MinutesWeekly, target: minutes_per_week, type: integer, min: 0, max: 1000}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: Updated, target: source_modified_at, type: datetime, required: true}

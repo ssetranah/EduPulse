@@ -1,0 +1,24 @@
+# Mock SIS -> Bronze `sis_schools`. Source-native (Ed-Fi-style) names -> canonical names.
+entity: schools
+bronze_table: sis_schools
+schema_version: "1.0.0"
+description: School directory from the (mock) student information system.
+primary_key: [tenant_id, school_id]
+incremental_field: source_modified_at
+unknown_fields: warn
+fields:
+  - {source: DistrictId, target: tenant_id, required: true, max_length: 64, sensitivity: internal}
+  - {source: SchoolId, target: school_id, required: true, max_length: 64}
+  - {source: SchoolName, target: school_name, required: true, max_length: 200}
+  - source: SchoolTypeDescriptor
+    target: school_type
+    required: true
+    case: upper
+    allowed_values: [ELEMENTARY, MIDDLE, HIGH, K8, K12]
+  - {source: LowestGradeLevel, target: lowest_grade, required: true}
+  - {source: HighestGradeLevel, target: highest_grade, required: true}
+  - {source: City, target: city}
+  - {source: StateAbbreviation, target: state_code, pattern: "^[A-Z]{2}$"}
+  - {source: PostalCode, target: postal_code, pattern: "^[0-9]{5}$"}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: LastModifiedDate, target: source_modified_at, type: datetime, required: true}

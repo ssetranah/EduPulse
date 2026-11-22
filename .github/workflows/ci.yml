@@ -45,6 +45,22 @@ jobs:
       - name: Data-quality tests
         run: pytest -m data_quality
 
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - name: Tests with coverage (ingestion package)
+        run: pytest --cov=ingestion --cov-report=term-missing --cov-report=xml:coverage.xml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
   synthetic-data-smoke:
     runs-on: ubuntu-latest
     steps:
@@ -56,6 +72,26 @@ jobs:
         run: python -m ingestion.synthetic generate --out "$RUNNER_TEMP/synthetic"
       - name: Validate synthetic dataset
         run: python -m ingestion.synthetic validate "$RUNNER_TEMP/synthetic"
+
+  ingestion-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - name: Generate synthetic extracts
+        run: python -m ingestion.synthetic generate --out data/synthetic
+      - name: Ingest all enabled sources (synthetic)
+        run: edupulse ingest --source all --config ingestion/configs/ingestion.yaml --strict
+      - name: Verify Bronze integrity
+        run: edupulse verify-bronze --root data/ingestion
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ingestion-run-reports
+          path: data/ingestion/runs/
 
   compose-config:
     runs-on: ubuntu-latest

@@ -1,0 +1,8 @@
+$ edupulse ingest --source does_not_exist --config <repo>/evidence/phase-2/demo_config.yaml
+
+--- stdout ---
+
+--- stderr ---
+error: unknown source 'does_not_exist'. Known sources: file_drop_synthetic, mock_assessment, mock_attendance, mock_lms, mock_sis, rest_sis_api
+
+--- exit code: 2 ---

@@ -1,0 +1,18 @@
+# Mock LMS -> Bronze `lms_activity`. Nullable assignment reference; numeric seconds.
+entity: lms_activity
+bronze_table: lms_activity
+schema_version: "1.0.0"
+primary_key: [tenant_id, lms_event_id]
+incremental_field: source_modified_at
+fields:
+  - {source: TenantKey, target: tenant_id, required: true, max_length: 64}
+  - {source: BuildingId, target: school_id, required: true}
+  - {source: LearnerId, target: student_id, required: true, sensitivity: confidential}
+  - {source: EventId, target: lms_event_id, required: true}
+  - {source: CourseCode, target: course_code, required: true}
+  - {source: ActivityType, target: event_type, required: true, case: upper}
+  - {source: AssignmentRef, target: assignment_id}
+  - {source: EventTimestamp, target: occurred_at, type: datetime, required: true}
+  - {source: SecondsSpent, target: duration_seconds, type: integer, required: true, min: 0, max: 86400}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: ModifiedAt, target: source_modified_at, type: datetime, required: true}

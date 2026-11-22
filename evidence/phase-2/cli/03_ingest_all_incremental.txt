@@ -1,0 +1,71 @@
+$ edupulse ingest --source all --config <repo>/evidence/phase-2/demo_config.yaml --run-id evidence-run-2 --override sources.mock_sis.mock.as_of=2026-01-20T00:00:00 --override sources.mock_lms.mock.as_of=2026-01-20T00:00:00 --override sources.mock_assessment.mock.as_of=2026-01-20T00:00:00 --override sources.mock_attendance.mock.as_of=2026-01-20T00:00:00 --override sources.rest_sis_api.base_url=http://127.0.0.1:44605
+
+--- stdout ---
+Run evidence-run-2  status=COMPLETED_WITH_REJECTS  dry_run=False
+SOURCE / ENTITY                               STATUS                      recv     acc     rej     dup    unch   xform    load   retry    secs
+----------------------------------------------------------------------------------------------------------------------------------------------
+file_drop_synthetic / students                NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.01
+file_drop_synthetic / grades                  NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.01
+file_drop_synthetic / assessment_definitions  NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.00
+  = file_drop_synthetic total                 NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.02
+rest_sis_api / students                       NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.02
+  = rest_sis_api total                        NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.02
+mock_sis / schools                            SUCCEEDED                      3       3       0       0       1       3       2       1    0.11
+mock_sis / students                           SUCCEEDED_WITH_REJECTS       184     179       5       0       1     179     178       0    0.03
+  = mock_sis total                            COMPLETED_WITH_REJECTS       187     182       5       0       2     182     180       1    0.14
+mock_lms / lms_activity                       SUCCEEDED                   3444    3444       0      28       1    3444    3415       0    0.25
+  = mock_lms total                            SUCCEEDED                   3444    3444       0      28       1    3444    3415       0    0.25
+mock_assessment / assessment_definitions      SUCCEEDED                      4       4       0       0       1       4       3       0    0.01
+mock_assessment / assessment_results          SUCCEEDED                    732     732       0       0       1     732     731       0    0.10
+  = mock_assessment total                     SUCCEEDED                    736     736       0       0       2     736     734       0    0.11
+mock_attendance / attendance_daily            SUCCEEDED_WITH_REJECTS      5513    5490      23       0       1    5490    5489       0    0.54
+mock_attendance / interventions               SUCCEEDED                     23      23       0       0       1      23      22       0    0.01
+  = mock_attendance total                     COMPLETED_WITH_REJECTS      5536    5513      23       0       2    5513    5511       0    0.55
+----------------------------------------------------------------------------------------------------------------------------------------------
+RUN TOTAL                                     COMPLETED_WITH_REJECTS      9904    9876      28      28       8    9876    9840       1    1.09
+
+run report:        data/ingestion/runs/evidence-run-2/run_report.json
+validation report: data/ingestion/runs/evidence-run-2/validation_report.json
+
+--- stderr ---
+[INFO   ] run_started
+[INFO   ] source_started source=file_drop_synthetic
+[INFO   ] entity_started source=file_drop_synthetic entity=students
+[INFO   ] unit_skipped source=file_drop_synthetic entity=students reason=already processed (path+checksum)
+[INFO   ] entity_finished source=file_drop_synthetic entity=students status=NO_NEW_DATA received=0 loaded=0 rejected=0 reason=None
+[INFO   ] entity_started source=file_drop_synthetic entity=grades
+[INFO   ] unit_skipped source=file_drop_synthetic entity=grades reason=already processed (path+checksum)
+[INFO   ] entity_finished source=file_drop_synthetic entity=grades status=NO_NEW_DATA received=0 loaded=0 rejected=0 reason=None
+[INFO   ] entity_started source=file_drop_synthetic entity=assessment_definitions
+[INFO   ] unit_skipped source=file_drop_synthetic entity=assessment_definitions reason=already processed (path+checksum)
+[INFO   ] entity_finished source=file_drop_synthetic entity=assessment_definitions status=NO_NEW_DATA received=0 loaded=0 rejected=0 reason=None
+[INFO   ] source_finished source=file_drop_synthetic status=NO_NEW_DATA
+[INFO   ] source_started source=rest_sis_api
+[INFO   ] entity_started source=rest_sis_api entity=students
+[INFO   ] entity_finished source=rest_sis_api entity=students status=NO_NEW_DATA received=1 loaded=0 rejected=0 reason=None
+[INFO   ] source_finished source=rest_sis_api status=NO_NEW_DATA
+[INFO   ] source_started source=mock_sis
+[INFO   ] entity_started source=mock_sis entity=schools
+[INFO   ] entity_finished source=mock_sis entity=schools status=SUCCEEDED received=3 loaded=2 rejected=0 reason=None
+[INFO   ] entity_started source=mock_sis entity=students
+[INFO   ] entity_finished source=mock_sis entity=students status=SUCCEEDED_WITH_REJECTS received=184 loaded=178 rejected=5 reason=None
+[INFO   ] source_finished source=mock_sis status=COMPLETED_WITH_REJECTS
+[INFO   ] source_started source=mock_lms
+[INFO   ] entity_started source=mock_lms entity=lms_activity
+[INFO   ] entity_finished source=mock_lms entity=lms_activity status=SUCCEEDED received=3444 loaded=3415 rejected=0 reason=None
+[INFO   ] source_finished source=mock_lms status=SUCCEEDED
+[INFO   ] source_started source=mock_assessment
+[INFO   ] entity_started source=mock_assessment entity=assessment_definitions
+[INFO   ] entity_finished source=mock_assessment entity=assessment_definitions status=SUCCEEDED received=4 loaded=3 rejected=0 reason=None
+[INFO   ] entity_started source=mock_assessment entity=assessment_results
+[INFO   ] entity_finished source=mock_assessment entity=assessment_results status=SUCCEEDED received=732 loaded=731 rejected=0 reason=None
+[INFO   ] source_finished source=mock_assessment status=SUCCEEDED
+[INFO   ] source_started source=mock_attendance
+[INFO   ] entity_started source=mock_attendance entity=attendance_daily
+[INFO   ] entity_finished source=mock_attendance entity=attendance_daily status=SUCCEEDED_WITH_REJECTS received=5513 loaded=5489 rejected=23 reason=None
+[INFO   ] entity_started source=mock_attendance entity=interventions
+[INFO   ] entity_finished source=mock_attendance entity=interventions status=SUCCEEDED received=23 loaded=22 rejected=0 reason=None
+[INFO   ] source_finished source=mock_attendance status=COMPLETED_WITH_REJECTS
+[INFO   ] run_finished status=COMPLETED_WITH_REJECTS received=9904 loaded=9840 rejected=28
+
+--- exit code: 0 ---

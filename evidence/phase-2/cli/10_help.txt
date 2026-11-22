@@ -1,0 +1,26 @@
+$ edupulse ingest --help
+
+--- stdout ---
+usage: edupulse ingest [-h] --source SOURCE --config CONFIG
+                       [--output-dir OUTPUT_DIR] [--run-id RUN_ID] [--dry-run]
+                       [--strict] [--override PATH=VALUE]
+                       [--log-level {DEBUG,INFO,WARNING,ERROR}] [--quiet]
+
+options:
+  -h, --help            show this help message and exit
+  --source SOURCE       source name from the config, or 'all'
+  --config CONFIG       path to the ingestion YAML config
+  --output-dir OUTPUT_DIR
+                        storage root (default: storage.root from the config)
+  --run-id RUN_ID       explicit run id (letters, digits, . _ -)
+  --dry-run             validate and count; write no Bronze/state
+  --strict              exit 3 if any record was rejected
+  --override PATH=VALUE
+                        override a config value, e.g.
+                        sources.mock_sis.mock.as_of=2026-01-04T00:00:00
+  --log-level {DEBUG,INFO,WARNING,ERROR}
+  --quiet               no console log lines (file log is kept)
+
+--- stderr ---
+
+--- exit code: 0 ---

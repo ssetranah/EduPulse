@@ -1,0 +1,820 @@
+{
+  "report_schema_version": "1.0",
+  "run_id": "evidence-run-2",
+  "status": "COMPLETED_WITH_REJECTS",
+  "dry_run": false,
+  "data_mode": "synthetic",
+  "framework_version": "0.2.0",
+  "config_path": "<repo>/evidence/phase-2/demo_config.yaml",
+  "started_at": "2026-11-22T01:37:50Z",
+  "finished_at": "2026-11-22T01:37:51Z",
+  "duration_seconds": 1.0862,
+  "records": {
+    "received": 9904,
+    "accepted": 9876,
+    "rejected": 28,
+    "duplicates": 28,
+    "unchanged_skipped": 8,
+    "transformed": 9876,
+    "loaded": 9840,
+    "retries": 1
+  },
+  "sources": [
+    {
+      "source": "file_drop_synthetic",
+      "connector_type": "file_drop",
+      "source_system": {
+        "source_name": "file_drop_synthetic",
+        "system": "FILE_DROP",
+        "connector_type": "file_drop",
+        "data_origin": "synthetic",
+        "extraction_method": "file drop (CSV / Excel / JSON Lines / JSON)",
+        "vendor": "Synthetic Labs",
+        "product": "Nightly extract drop",
+        "version": null,
+        "description": "Phase 1 synthetic extracts"
+      },
+      "status": "NO_NEW_DATA",
+      "duration_seconds": 0.0183,
+      "records": {
+        "received": 0,
+        "accepted": 0,
+        "rejected": 0,
+        "duplicates": 0,
+        "unchanged_skipped": 0,
+        "transformed": 0,
+        "loaded": 0,
+        "retries": 0
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "students",
+          "bronze_table": "sis_students",
+          "status": "NO_NEW_DATA",
+          "batch_id": "evidence-run-2-students",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.007,
+          "records": {
+            "received": 0,
+            "accepted": 0,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 0,
+            "loaded": 0,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "file_ledger",
+            "since": null,
+            "previous_watermark": null,
+            "description": "skip files whose path+SHA-256 were already ingested; row-hash idempotency suppresses unchanged rows of a re-delivered file",
+            "new_watermark": null
+          },
+          "units": [
+            {
+              "unit": "sis/students.csv",
+              "status": "skipped_already_processed"
+            }
+          ],
+          "schema_checks": [],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [],
+          "dead_letter_path": null
+        },
+        {
+          "entity": "grades",
+          "bronze_table": "grades",
+          "status": "NO_NEW_DATA",
+          "batch_id": "evidence-run-2-grades",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0064,
+          "records": {
+            "received": 0,
+            "accepted": 0,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 0,
+            "loaded": 0,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "file_ledger",
+            "since": null,
+            "previous_watermark": "2026-01-28T12:00:00Z",
+            "description": "skip files whose path+SHA-256 were already ingested; row-hash idempotency suppresses unchanged rows of a re-delivered file",
+            "new_watermark": "2026-01-28T12:00:00Z"
+          },
+          "units": [
+            {
+              "unit": "grading/grades.jsonl",
+              "status": "skipped_already_processed"
+            }
+          ],
+          "schema_checks": [],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [],
+          "dead_letter_path": null
+        },
+        {
+          "entity": "assessment_definitions",
+          "bronze_table": "assessment_definitions",
+          "status": "NO_NEW_DATA",
+          "batch_id": "evidence-run-2-assessment_definitions",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0043,
+          "records": {
+            "received": 0,
+            "accepted": 0,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 0,
+            "transformed": 0,
+            "loaded": 0,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "file_ledger",
+            "since": null,
+            "previous_watermark": null,
+            "description": "skip files whose path+SHA-256 were already ingested; row-hash idempotency suppresses unchanged rows of a re-delivered file",
+            "new_watermark": null
+          },
+          "units": [
+            {
+              "unit": "assessment/assessment_definitions.csv",
+              "status": "skipped_already_processed"
+            }
+          ],
+          "schema_checks": [],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [],
+          "dead_letter_path": null
+        }
+      ]
+    },
+    {
+      "source": "rest_sis_api",
+      "connector_type": "rest_api",
+      "source_system": {
+        "source_name": "rest_sis_api",
+        "system": "SIS",
+        "connector_type": "rest_api",
+        "data_origin": "synthetic",
+        "extraction_method": "JSON REST API (HTTP GET, paginated)",
+        "vendor": "Mock Vendor",
+        "product": "REST SIS API",
+        "version": "v1",
+        "description": null
+      },
+      "status": "NO_NEW_DATA",
+      "duration_seconds": 0.0236,
+      "records": {
+        "received": 1,
+        "accepted": 1,
+        "rejected": 0,
+        "duplicates": 0,
+        "unchanged_skipped": 1,
+        "transformed": 1,
+        "loaded": 0,
+        "retries": 0
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "students",
+          "bronze_table": "sis_students",
+          "status": "NO_NEW_DATA",
+          "batch_id": "evidence-run-2-students",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0165,
+          "records": {
+            "received": 1,
+            "accepted": 1,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 1,
+            "loaded": 0,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-13T04:40:00Z",
+            "previous_watermark": "2026-01-13T04:40:00Z",
+            "description": "?updated_since=<watermark> on 'source_modified_at'",
+            "new_watermark": "2026-01-13T04:40:00Z"
+          },
+          "units": [
+            {
+              "unit": "127.0.0.1:44605/v1/students",
+              "received": 1,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "127.0.0.1:44605/v1/students",
+              "ok": true,
+              "fingerprint": "e686760e9830bc91",
+              "observed_field_count": 17,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [],
+          "dead_letter_path": null
+        }
+      ]
+    },
+    {
+      "source": "mock_sis",
+      "connector_type": "mock_sis",
+      "source_system": {
+        "source_name": "mock_sis",
+        "system": "SIS",
+        "connector_type": "mock_sis",
+        "data_origin": "synthetic",
+        "extraction_method": "in-process simulation of a vendor API (synthetic data)",
+        "vendor": "Mock Vendor",
+        "product": "Mock SIS",
+        "version": "1.0",
+        "description": null
+      },
+      "status": "COMPLETED_WITH_REJECTS",
+      "duration_seconds": 0.136,
+      "records": {
+        "received": 187,
+        "accepted": 182,
+        "rejected": 5,
+        "duplicates": 0,
+        "unchanged_skipped": 2,
+        "transformed": 182,
+        "loaded": 180,
+        "retries": 1
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "schools",
+          "bronze_table": "sis_schools",
+          "status": "SUCCEEDED",
+          "batch_id": "evidence-run-2-schools",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.1061,
+          "records": {
+            "received": 3,
+            "accepted": 3,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 3,
+            "loaded": 2,
+            "retries": 1
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-09T08:00:00Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_sis/schools",
+              "received": 3,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_sis/schools",
+              "ok": true,
+              "fingerprint": "163e9b8dc659d6b9",
+              "observed_field_count": 11,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_sis/table=sis_schools/batch_id=evidence-run-2-schools"
+          ],
+          "dead_letter_path": null
+        },
+        {
+          "entity": "students",
+          "bronze_table": "sis_students",
+          "status": "SUCCEEDED_WITH_REJECTS",
+          "batch_id": "evidence-run-2-students",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0295,
+          "records": {
+            "received": 184,
+            "accepted": 179,
+            "rejected": 5,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 179,
+            "loaded": 178,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-13T04:40:00Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_sis/students",
+              "received": 184,
+              "rejected": 5,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_sis/students",
+              "ok": true,
+              "fingerprint": "e686760e9830bc91",
+              "observed_field_count": 17,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {
+              "MISSING_REQUIRED": 3,
+              "TYPE_COERCION_FAILED": 2
+            },
+            "errors_by_field": {
+              "birth_date": 2,
+              "student_id": 3
+            },
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-01/source=mock_sis/table=sis_students/batch_id=evidence-run-2-students",
+            "bronze/tenant_id=tenant-syn-02/source=mock_sis/table=sis_students/batch_id=evidence-run-2-students"
+          ],
+          "dead_letter_path": "dead_letter/source=mock_sis/table=sis_students/batch_id=evidence-run-2-students"
+        }
+      ]
+    },
+    {
+      "source": "mock_lms",
+      "connector_type": "mock_lms",
+      "source_system": {
+        "source_name": "mock_lms",
+        "system": "LMS",
+        "connector_type": "mock_lms",
+        "data_origin": "synthetic",
+        "extraction_method": "in-process simulation of a vendor API (synthetic data)",
+        "vendor": "Mock Vendor",
+        "product": "Mock LMS",
+        "version": "1.0",
+        "description": null
+      },
+      "status": "SUCCEEDED",
+      "duration_seconds": 0.2465,
+      "records": {
+        "received": 3444,
+        "accepted": 3444,
+        "rejected": 0,
+        "duplicates": 28,
+        "unchanged_skipped": 1,
+        "transformed": 3444,
+        "loaded": 3415,
+        "retries": 0
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "lms_activity",
+          "bronze_table": "lms_activity",
+          "status": "SUCCEEDED",
+          "batch_id": "evidence-run-2-lms_activity",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.2462,
+          "records": {
+            "received": 3444,
+            "accepted": 3444,
+            "rejected": 0,
+            "duplicates": 28,
+            "unchanged_skipped": 1,
+            "transformed": 3444,
+            "loaded": 3415,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-10T23:57:53Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_lms/lms_activity",
+              "received": 3444,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_lms/lms_activity",
+              "ok": true,
+              "fingerprint": "532df12f7cca9d37",
+              "observed_field_count": 11,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {
+              "DUPLICATE_RECORD_IN_BATCH": 28
+            }
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_lms/table=lms_activity/batch_id=evidence-run-2-lms_activity"
+          ],
+          "dead_letter_path": null
+        }
+      ]
+    },
+    {
+      "source": "mock_assessment",
+      "connector_type": "mock_assessment",
+      "source_system": {
+        "source_name": "mock_assessment",
+        "system": "ASSESSMENT",
+        "connector_type": "mock_assessment",
+        "data_origin": "synthetic",
+        "extraction_method": "in-process simulation of a vendor API (synthetic data)",
+        "vendor": "Mock Vendor",
+        "product": "Mock Assessment Platform",
+        "version": "1.0",
+        "description": null
+      },
+      "status": "SUCCEEDED",
+      "duration_seconds": 0.1091,
+      "records": {
+        "received": 736,
+        "accepted": 736,
+        "rejected": 0,
+        "duplicates": 0,
+        "unchanged_skipped": 2,
+        "transformed": 736,
+        "loaded": 734,
+        "retries": 0
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "assessment_definitions",
+          "bronze_table": "assessment_definitions",
+          "status": "SUCCEEDED",
+          "batch_id": "evidence-run-2-assessment_definitions",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0095,
+          "records": {
+            "received": 4,
+            "accepted": 4,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 4,
+            "loaded": 3,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-09T18:00:00Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_assessment/assessment_definitions",
+              "received": 4,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_assessment/assessment_definitions",
+              "ok": true,
+              "fingerprint": "37145972825b6c85",
+              "observed_field_count": 11,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_assessment/table=assessment_definitions/batch_id=evidence-run-2-assessment_definitions"
+          ],
+          "dead_letter_path": null
+        },
+        {
+          "entity": "assessment_results",
+          "bronze_table": "assessment_results",
+          "status": "SUCCEEDED",
+          "batch_id": "evidence-run-2-assessment_results",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:50Z",
+          "duration_seconds": 0.0991,
+          "records": {
+            "received": 732,
+            "accepted": 732,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 732,
+            "loaded": 731,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-13T22:20:00Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_assessment/assessment_results",
+              "received": 732,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_assessment/assessment_results",
+              "ok": true,
+              "fingerprint": "64bc2e16c5c9eb31",
+              "observed_field_count": 12,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_assessment/table=assessment_results/batch_id=evidence-run-2-assessment_results",
+            "bronze/tenant_id=tenant-syn-01/source=mock_assessment/table=assessment_results/batch_id=evidence-run-2-assessment_results"
+          ],
+          "dead_letter_path": null
+        }
+      ]
+    },
+    {
+      "source": "mock_attendance",
+      "connector_type": "mock_attendance_intervention",
+      "source_system": {
+        "source_name": "mock_attendance",
+        "system": "ATTENDANCE_INTERVENTION",
+        "connector_type": "mock_attendance_intervention",
+        "data_origin": "synthetic",
+        "extraction_method": "in-process simulation of a vendor API (synthetic data)",
+        "vendor": "Mock Vendor",
+        "product": "Mock Attendance & Intervention",
+        "version": "1.0",
+        "description": null
+      },
+      "status": "COMPLETED_WITH_REJECTS",
+      "duration_seconds": 0.5514,
+      "records": {
+        "received": 5536,
+        "accepted": 5513,
+        "rejected": 23,
+        "duplicates": 0,
+        "unchanged_skipped": 2,
+        "transformed": 5513,
+        "loaded": 5511,
+        "retries": 0
+      },
+      "failure": null,
+      "entities": [
+        {
+          "entity": "attendance_daily",
+          "bronze_table": "attendance_daily",
+          "status": "SUCCEEDED_WITH_REJECTS",
+          "batch_id": "evidence-run-2-attendance_daily",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:50Z",
+          "finished_at": "2026-11-22T01:37:51Z",
+          "duration_seconds": 0.5423,
+          "records": {
+            "received": 5513,
+            "accepted": 5490,
+            "rejected": 23,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 5490,
+            "loaded": 5489,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-13T23:12:00Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_attendance/attendance_daily",
+              "received": 5513,
+              "rejected": 23,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_attendance/attendance_daily",
+              "ok": true,
+              "fingerprint": "44ae67df5293716d",
+              "observed_field_count": 8,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {
+              "MISSING_REQUIRED": 7,
+              "NOT_IN_VALUE_MAP": 11,
+              "TYPE_COERCION_FAILED": 5
+            },
+            "errors_by_field": {
+              "attendance_date": 5,
+              "attendance_event_id": 7,
+              "attendance_status": 11
+            },
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_attendance/table=attendance_daily/batch_id=evidence-run-2-attendance_daily",
+            "bronze/tenant_id=tenant-syn-01/source=mock_attendance/table=attendance_daily/batch_id=evidence-run-2-attendance_daily"
+          ],
+          "dead_letter_path": "dead_letter/source=mock_attendance/table=attendance_daily/batch_id=evidence-run-2-attendance_daily"
+        },
+        {
+          "entity": "interventions",
+          "bronze_table": "interventions",
+          "status": "SUCCEEDED",
+          "batch_id": "evidence-run-2-interventions",
+          "schema_version": "1.0.0",
+          "started_at": "2026-11-22T01:37:51Z",
+          "finished_at": "2026-11-22T01:37:51Z",
+          "duration_seconds": 0.0085,
+          "records": {
+            "received": 23,
+            "accepted": 23,
+            "rejected": 0,
+            "duplicates": 0,
+            "unchanged_skipped": 1,
+            "transformed": 23,
+            "loaded": 22,
+            "retries": 0
+          },
+          "incremental": {
+            "strategy": "watermark",
+            "since": "2026-01-06T00:00:00Z",
+            "previous_watermark": "2026-01-06T00:00:00Z",
+            "description": "modified >= watermark on 'source_modified_at'",
+            "new_watermark": "2026-01-10T18:46:57Z"
+          },
+          "units": [
+            {
+              "unit": "mock://mock_attendance/interventions",
+              "received": 23,
+              "rejected": 0,
+              "status": "read"
+            }
+          ],
+          "schema_checks": [
+            {
+              "unit": "mock://mock_attendance/interventions",
+              "ok": true,
+              "fingerprint": "58792de6065fbd7f",
+              "observed_field_count": 13,
+              "missing_required": [],
+              "missing_optional": [],
+              "unexpected": [],
+              "drift_from_previous": false
+            }
+          ],
+          "validation": {
+            "errors_by_code": {},
+            "errors_by_field": {},
+            "warnings_by_code": {}
+          },
+          "warnings": [],
+          "failure": null,
+          "bronze_batches": [
+            "bronze/tenant_id=tenant-syn-02/source=mock_attendance/table=interventions/batch_id=evidence-run-2-interventions"
+          ],
+          "dead_letter_path": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "received = rejected + accepted; accepted = duplicates + unchanged_skipped + loaded",
+    "transformed = records successfully mapped and type-coerced (== accepted)",
+    "loaded = records written to Bronze in this run",
+    "This report contains no record values."
+  ]
+}

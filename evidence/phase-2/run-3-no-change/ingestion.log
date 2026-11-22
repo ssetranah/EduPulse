@@ -1,0 +1,39 @@
+{"ts": "2026-11-22T01:37:51.498+00:00", "level": "INFO", "event": "run_started", "run_id": "evidence-run-3", "sources": "file_drop_synthetic,rest_sis_api,mock_sis,mock_lms,mock_assessment,mock_attendance", "dry_run": false}
+{"ts": "2026-11-22T01:37:51.498+00:00", "level": "INFO", "event": "source_started", "source": "file_drop_synthetic", "connector": "file_drop"}
+{"ts": "2026-11-22T01:37:51.502+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "students", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:51.503+00:00", "level": "INFO", "event": "unit_skipped", "source": "file_drop_synthetic", "entity": "students", "unit": "sis/students.csv", "reason": "already processed (path+checksum)"}
+{"ts": "2026-11-22T01:37:51.504+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "students", "status": "NO_NEW_DATA", "received": 0, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.507+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "grades", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:51.509+00:00", "level": "INFO", "event": "unit_skipped", "source": "file_drop_synthetic", "entity": "grades", "unit": "grading/grades.jsonl", "reason": "already processed (path+checksum)"}
+{"ts": "2026-11-22T01:37:51.510+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "grades", "status": "NO_NEW_DATA", "received": 0, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.513+00:00", "level": "INFO", "event": "entity_started", "source": "file_drop_synthetic", "entity": "assessment_definitions", "strategy": "file_ledger", "since": null}
+{"ts": "2026-11-22T01:37:51.513+00:00", "level": "INFO", "event": "unit_skipped", "source": "file_drop_synthetic", "entity": "assessment_definitions", "unit": "assessment/assessment_definitions.csv", "reason": "already processed (path+checksum)"}
+{"ts": "2026-11-22T01:37:51.514+00:00", "level": "INFO", "event": "entity_finished", "source": "file_drop_synthetic", "entity": "assessment_definitions", "status": "NO_NEW_DATA", "received": 0, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.514+00:00", "level": "INFO", "event": "source_finished", "source": "file_drop_synthetic", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.521+00:00", "level": "INFO", "event": "source_started", "source": "rest_sis_api", "connector": "rest_api"}
+{"ts": "2026-11-22T01:37:51.526+00:00", "level": "INFO", "event": "entity_started", "source": "rest_sis_api", "entity": "students", "strategy": "watermark", "since": "2026-01-13T04:40:00Z"}
+{"ts": "2026-11-22T01:37:51.537+00:00", "level": "INFO", "event": "entity_finished", "source": "rest_sis_api", "entity": "students", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.537+00:00", "level": "INFO", "event": "source_finished", "source": "rest_sis_api", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.537+00:00", "level": "INFO", "event": "source_started", "source": "mock_sis", "connector": "mock_sis"}
+{"ts": "2026-11-22T01:37:51.540+00:00", "level": "INFO", "event": "entity_started", "source": "mock_sis", "entity": "schools", "strategy": "watermark", "since": "2026-01-09T08:00:00Z"}
+{"ts": "2026-11-22T01:37:51.639+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_sis", "entity": "schools", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.649+00:00", "level": "INFO", "event": "entity_started", "source": "mock_sis", "entity": "students", "strategy": "watermark", "since": "2026-01-13T04:40:00Z"}
+{"ts": "2026-11-22T01:37:51.654+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_sis", "entity": "students", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.654+00:00", "level": "INFO", "event": "source_finished", "source": "mock_sis", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.654+00:00", "level": "INFO", "event": "source_started", "source": "mock_lms", "connector": "mock_lms"}
+{"ts": "2026-11-22T01:37:51.659+00:00", "level": "INFO", "event": "entity_started", "source": "mock_lms", "entity": "lms_activity", "strategy": "watermark", "since": "2026-01-10T23:57:53Z"}
+{"ts": "2026-11-22T01:37:51.689+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_lms", "entity": "lms_activity", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.689+00:00", "level": "INFO", "event": "source_finished", "source": "mock_lms", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.689+00:00", "level": "INFO", "event": "source_started", "source": "mock_assessment", "connector": "mock_assessment"}
+{"ts": "2026-11-22T01:37:51.692+00:00", "level": "INFO", "event": "entity_started", "source": "mock_assessment", "entity": "assessment_definitions", "strategy": "watermark", "since": "2026-01-09T18:00:00Z"}
+{"ts": "2026-11-22T01:37:51.695+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_assessment", "entity": "assessment_definitions", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.700+00:00", "level": "INFO", "event": "entity_started", "source": "mock_assessment", "entity": "assessment_results", "strategy": "watermark", "since": "2026-01-13T22:20:00Z"}
+{"ts": "2026-11-22T01:37:51.712+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_assessment", "entity": "assessment_results", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.712+00:00", "level": "INFO", "event": "source_finished", "source": "mock_assessment", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.712+00:00", "level": "INFO", "event": "source_started", "source": "mock_attendance", "connector": "mock_attendance_intervention"}
+{"ts": "2026-11-22T01:37:51.716+00:00", "level": "INFO", "event": "entity_started", "source": "mock_attendance", "entity": "attendance_daily", "strategy": "watermark", "since": "2026-01-13T23:12:00Z"}
+{"ts": "2026-11-22T01:37:51.794+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_attendance", "entity": "attendance_daily", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.800+00:00", "level": "INFO", "event": "entity_started", "source": "mock_attendance", "entity": "interventions", "strategy": "watermark", "since": "2026-01-10T18:46:57Z"}
+{"ts": "2026-11-22T01:37:51.802+00:00", "level": "INFO", "event": "entity_finished", "source": "mock_attendance", "entity": "interventions", "status": "NO_NEW_DATA", "received": 1, "loaded": 0, "rejected": 0, "reason": null}
+{"ts": "2026-11-22T01:37:51.803+00:00", "level": "INFO", "event": "source_finished", "source": "mock_attendance", "status": "NO_NEW_DATA"}
+{"ts": "2026-11-22T01:37:51.803+00:00", "level": "INFO", "event": "run_finished", "run_id": "evidence-run-3", "status": "NO_NEW_DATA", "received": 8, "loaded": 0, "rejected": 0}

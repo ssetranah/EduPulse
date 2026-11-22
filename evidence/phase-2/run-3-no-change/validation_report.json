@@ -1,0 +1,307 @@
+{
+  "report_schema_version": "1.0",
+  "run_id": "evidence-run-3",
+  "notes": [
+    "Row-level examples list location, error code and field only (no values).",
+    "Rejected raw records are in the dead-letter store, not in this report."
+  ],
+  "entities": [
+    {
+      "source": "file_drop_synthetic",
+      "entity": "students",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "file_drop_synthetic",
+      "entity": "grades",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "file_drop_synthetic",
+      "entity": "assessment_definitions",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "rest_sis_api",
+      "entity": "students",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "127.0.0.1:44605/v1/students",
+          "ok": true,
+          "fingerprint": "e686760e9830bc91",
+          "observed_field_count": 17,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_sis",
+      "entity": "schools",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_sis/schools",
+          "ok": true,
+          "fingerprint": "163e9b8dc659d6b9",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_sis",
+      "entity": "students",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_sis/students",
+          "ok": true,
+          "fingerprint": "e686760e9830bc91",
+          "observed_field_count": 17,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_lms",
+      "entity": "lms_activity",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_lms/lms_activity",
+          "ok": true,
+          "fingerprint": "532df12f7cca9d37",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_assessment",
+      "entity": "assessment_definitions",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_assessment/assessment_definitions",
+          "ok": true,
+          "fingerprint": "37145972825b6c85",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_assessment",
+      "entity": "assessment_results",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_assessment/assessment_results",
+          "ok": true,
+          "fingerprint": "64bc2e16c5c9eb31",
+          "observed_field_count": 12,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_attendance",
+      "entity": "attendance_daily",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_attendance/attendance_daily",
+          "ok": true,
+          "fingerprint": "44ae67df5293716d",
+          "observed_field_count": 8,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_attendance",
+      "entity": "interventions",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_attendance/interventions",
+          "ok": true,
+          "fingerprint": "58792de6065fbd7f",
+          "observed_field_count": 13,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    }
+  ]
+}

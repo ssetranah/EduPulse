@@ -1,0 +1,16 @@
+$ python -m ingestion.synthetic generate --out data/synthetic
+
+--- stdout ---
+SYNTHETIC_TEST_DATA: wrote 22372 rows to data/synthetic
+  sis/schools.csv                                      6 rows
+  sis/students.csv                                   360 rows
+  assessment/assessment_definitions.csv                8 rows
+  assessment/assessment_results.csv                 1440 rows
+  attendance/attendance_daily.csv                  10800 rows
+  grading/grades.jsonl                              2880 rows
+  lms/lms_activity.jsonl                            6832 rows
+  intervention/interventions.csv                      46 rows
+
+--- stderr ---
+
+--- exit code: 0 ---

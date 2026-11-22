@@ -1,0 +1,11 @@
+$ edupulse ingest --source all --config <workdir>/bad.yaml
+
+--- stdout ---
+
+--- stderr ---
+error: invalid config <workdir>/bad.yaml:
+  - sources.s.mock_sis.system: Field required
+  - sources.s.mock_sis.entities: Field required
+  - sources.s.mock_sis.surprise_key: Extra inputs are not permitted
+
+--- exit code: 2 ---

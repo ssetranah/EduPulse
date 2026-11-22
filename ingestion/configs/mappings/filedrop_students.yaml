@@ -1,0 +1,23 @@
+# File drop (Phase 1 CSV extract, canonical column names) -> Bronze `sis_students`.
+# Same canonical output as the mock SIS mapping, different source shape.
+entity: students
+bronze_table: sis_students
+schema_version: "1.0.0"
+primary_key: [tenant_id, student_id]
+fields:
+  - {source: tenant_id, target: tenant_id, required: true, max_length: 64}
+  - {source: school_id, target: school_id, required: true, max_length: 64}
+  - {source: student_id, target: student_id, required: true, max_length: 64, sensitivity: confidential}
+  - {source: state_student_id, target: state_student_id, sensitivity: confidential}
+  - {source: first_name, target: first_name, required: true, sensitivity: restricted}
+  - {source: last_name, target: last_name, required: true, sensitivity: restricted}
+  - {source: birth_date, target: birth_date, type: date, required: true, sensitivity: restricted}
+  - {source: grade_level, target: grade_level, required: true}
+  - {source: gender, target: gender, required: true, sensitivity: confidential}
+  - {source: race_ethnicity, target: race_ethnicity, sensitivity: confidential}
+  - {source: english_learner, target: english_learner, type: boolean, required: true, sensitivity: confidential}
+  - {source: special_education, target: special_education, type: boolean, required: true, sensitivity: restricted}
+  - {source: economically_disadvantaged, target: economically_disadvantaged, type: boolean, required: true, sensitivity: confidential}
+  - {source: enrollment_start_date, target: enrollment_start_date, type: date, required: true}
+  - {source: enrollment_status, target: enrollment_status, required: true, case: upper, allowed_values: [ACTIVE, WITHDRAWN, GRADUATED, TRANSFERRED]}
+  - {source: synthetic_marker, target: synthetic_marker, required: true}

@@ -1,0 +1,605 @@
+{
+  "report_schema_version": "1.0",
+  "run_id": "evidence-run-2",
+  "notes": [
+    "Row-level examples list location, error code and field only (no values).",
+    "Rejected raw records are in the dead-letter store, not in this report."
+  ],
+  "entities": [
+    {
+      "source": "file_drop_synthetic",
+      "entity": "students",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "file_drop_synthetic",
+      "entity": "grades",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "file_drop_synthetic",
+      "entity": "assessment_definitions",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [],
+      "records": {
+        "received": 0,
+        "rejected": 0,
+        "accepted": 0
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "rest_sis_api",
+      "entity": "students",
+      "status": "NO_NEW_DATA",
+      "schema_checks": [
+        {
+          "unit": "127.0.0.1:44605/v1/students",
+          "ok": true,
+          "fingerprint": "e686760e9830bc91",
+          "observed_field_count": 17,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 1,
+        "rejected": 0,
+        "accepted": 1
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_sis",
+      "entity": "schools",
+      "status": "SUCCEEDED",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_sis/schools",
+          "ok": true,
+          "fingerprint": "163e9b8dc659d6b9",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 3,
+        "rejected": 0,
+        "accepted": 3
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_sis",
+      "entity": "students",
+      "status": "SUCCEEDED_WITH_REJECTS",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_sis/students",
+          "ok": true,
+          "fingerprint": "e686760e9830bc91",
+          "observed_field_count": 17,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 184,
+        "rejected": 5,
+        "accepted": 179
+      },
+      "validation": {
+        "errors_by_code": {
+          "MISSING_REQUIRED": 3,
+          "TYPE_COERCION_FAILED": 2
+        },
+        "errors_by_field": {
+          "birth_date": 2,
+          "student_id": 3
+        },
+        "warnings_by_code": {},
+        "examples": [
+          {
+            "location": "mock://mock_sis/students?page=1#3",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "student_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_sis/students?page=1#45",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "student_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_sis/students?page=1#60",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "student_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_sis/students?page=1#116",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "birth_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_sis/students?page=1#181",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "birth_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          }
+        ]
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_lms",
+      "entity": "lms_activity",
+      "status": "SUCCEEDED",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_lms/lms_activity",
+          "ok": true,
+          "fingerprint": "532df12f7cca9d37",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 3444,
+        "rejected": 0,
+        "accepted": 3444
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {
+          "DUPLICATE_RECORD_IN_BATCH": 28
+        },
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_assessment",
+      "entity": "assessment_definitions",
+      "status": "SUCCEEDED",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_assessment/assessment_definitions",
+          "ok": true,
+          "fingerprint": "37145972825b6c85",
+          "observed_field_count": 11,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 4,
+        "rejected": 0,
+        "accepted": 4
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_assessment",
+      "entity": "assessment_results",
+      "status": "SUCCEEDED",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_assessment/assessment_results",
+          "ok": true,
+          "fingerprint": "64bc2e16c5c9eb31",
+          "observed_field_count": 12,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 732,
+        "rejected": 0,
+        "accepted": 732
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_attendance",
+      "entity": "attendance_daily",
+      "status": "SUCCEEDED_WITH_REJECTS",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_attendance/attendance_daily",
+          "ok": true,
+          "fingerprint": "44ae67df5293716d",
+          "observed_field_count": 8,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 5513,
+        "rejected": 23,
+        "accepted": 5490
+      },
+      "validation": {
+        "errors_by_code": {
+          "MISSING_REQUIRED": 7,
+          "NOT_IN_VALUE_MAP": 11,
+          "TYPE_COERCION_FAILED": 5
+        },
+        "errors_by_field": {
+          "attendance_date": 5,
+          "attendance_event_id": 7,
+          "attendance_status": 11
+        },
+        "warnings_by_code": {},
+        "examples": [
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=1#210",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=2#315",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=4#119",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=4#289",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=4#347",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "attendance_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=4#403",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=5#364",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=5#388",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=5#414",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "attendance_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=5#465",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=6#16",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=6#21",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=6#89",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "attendance_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=6#126",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=6#480",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "attendance_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=7#38",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=7#191",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=7#209",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=7#219",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=8#36",
+            "errors": [
+              {
+                "code": "TYPE_COERCION_FAILED",
+                "field": "attendance_date",
+                "message": "value could not be converted to date"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=8#38",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=8#216",
+            "errors": [
+              {
+                "code": "MISSING_REQUIRED",
+                "field": "attendance_event_id",
+                "message": "required value is missing or null"
+              }
+            ]
+          },
+          {
+            "location": "mock://mock_attendance/attendance_daily?page=8#345",
+            "errors": [
+              {
+                "code": "NOT_IN_VALUE_MAP",
+                "field": "attendance_status",
+                "message": "source code has no entry in value_map"
+              }
+            ]
+          }
+        ]
+      },
+      "warnings": [],
+      "failure": null
+    },
+    {
+      "source": "mock_attendance",
+      "entity": "interventions",
+      "status": "SUCCEEDED",
+      "schema_checks": [
+        {
+          "unit": "mock://mock_attendance/interventions",
+          "ok": true,
+          "fingerprint": "58792de6065fbd7f",
+          "observed_field_count": 13,
+          "missing_required": [],
+          "missing_optional": [],
+          "unexpected": [],
+          "drift_from_previous": false
+        }
+      ],
+      "records": {
+        "received": 23,
+        "rejected": 0,
+        "accepted": 23
+      },
+      "validation": {
+        "errors_by_code": {},
+        "errors_by_field": {},
+        "warnings_by_code": {},
+        "examples": []
+      },
+      "warnings": [],
+      "failure": null
+    }
+  ]
+}

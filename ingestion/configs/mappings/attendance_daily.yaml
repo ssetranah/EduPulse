@@ -1,0 +1,19 @@
+# Mock attendance system -> Bronze `attendance_daily`. Compact dates (YYYYMMDD) and short codes.
+# `RecordedAt` is a naive timestamp; it is interpreted as UTC.
+entity: attendance_daily
+bronze_table: attendance_daily
+schema_version: "1.0.0"
+primary_key: [tenant_id, attendance_event_id]
+incremental_field: source_modified_at
+fields:
+  - {source: Tenant, target: tenant_id, required: true}
+  - {source: School, target: school_id, required: true}
+  - {source: Student, target: student_id, required: true, sensitivity: confidential}
+  - {source: AttendanceId, target: attendance_event_id, required: true}
+  - {source: Date, target: attendance_date, type: date, formats: ["%Y%m%d"], required: true}
+  - source: Code
+    target: attendance_status
+    required: true
+    value_map: {P: PRESENT, AE: ABSENT_EXCUSED, AU: ABSENT_UNEXCUSED, T: TARDY}
+  - {source: SyntheticMarker, target: synthetic_marker, required: true}
+  - {source: RecordedAt, target: source_modified_at, type: datetime, formats: ["%Y-%m-%d %H:%M:%S"], required: true}

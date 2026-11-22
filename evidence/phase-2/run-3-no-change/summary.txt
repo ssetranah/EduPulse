@@ -1,0 +1,22 @@
+Run evidence-run-3  status=NO_NEW_DATA  dry_run=False
+SOURCE / ENTITY                               STATUS                      recv     acc     rej     dup    unch   xform    load   retry    secs
+----------------------------------------------------------------------------------------------------------------------------------------------
+file_drop_synthetic / students                NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.01
+file_drop_synthetic / grades                  NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.01
+file_drop_synthetic / assessment_definitions  NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.00
+  = file_drop_synthetic total                 NO_NEW_DATA                    0       0       0       0       0       0       0       0    0.02
+rest_sis_api / students                       NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.02
+  = rest_sis_api total                        NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.02
+mock_sis / schools                            NO_NEW_DATA                    1       1       0       0       1       1       0       1    0.10
+mock_sis / students                           NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.01
+  = mock_sis total                            NO_NEW_DATA                    2       2       0       0       2       2       0       1    0.12
+mock_lms / lms_activity                       NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.03
+  = mock_lms total                            NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.03
+mock_assessment / assessment_definitions      NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.01
+mock_assessment / assessment_results          NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.02
+  = mock_assessment total                     NO_NEW_DATA                    2       2       0       0       2       2       0       0    0.02
+mock_attendance / attendance_daily            NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.08
+mock_attendance / interventions               NO_NEW_DATA                    1       1       0       0       1       1       0       0    0.01
+  = mock_attendance total                     NO_NEW_DATA                    2       2       0       0       2       2       0       0    0.09
+----------------------------------------------------------------------------------------------------------------------------------------------
+RUN TOTAL                                     NO_NEW_DATA                    8       8       0       0       8       8       0       1    0.31

@@ -189,6 +189,11 @@ def main() -> int:
         if (out / "screenshots").is_dir()
         else [],
     }
+    if args.phase == 2:
+        from evidence import phase2
+
+        evidence["ingestion"] = phase2.collect(out)
+        evidence["coverage"] = phase2.coverage(out)
     (out / "evidence.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
 
     t = tests["all"]

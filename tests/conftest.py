@@ -37,3 +37,22 @@ def clean_dataset_dir(tmp_path_factory: pytest.TempPathFactory, clean_data: Gene
 def defective_data() -> GeneratedData:
     config = GeneratorConfig(seed=7, tenants=1, students_per_school=80, defect_rate=0.1)
     return generate(config)
+
+
+# --------------------------------------------------------------------------- ingestion (Phase 2)
+from collections.abc import Callable  # noqa: E402
+from typing import Any  # noqa: E402
+
+from tests.ing_support import write_yaml  # noqa: E402
+
+
+@pytest.fixture
+def write_ingest_config(tmp_path: Path) -> Callable[..., Path]:
+    """Write an ingestion config (storage under tmp_path) and return its path."""
+
+    def _write(sources: dict[str, Any], **top: Any) -> Path:
+        body = {"version": 1, "storage": {"root": str(tmp_path / "store")}, "sources": sources}
+        body.update(top)
+        return write_yaml(tmp_path / "ingestion.yaml", body)
+
+    return _write
