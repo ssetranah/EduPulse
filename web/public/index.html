@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EduPulse AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="banner" role="note">
+      SYNTHETIC_TEST_DATA &mdash; development scaffold. No real student data is loaded.
+    </div>
+
+    <main>
+      <header>
+        <p class="eyebrow">EduPulse AI</p>
+        <h1>Dashboard scaffold</h1>
+        <p class="lede">
+          Phase 1 foundation. Proficiency gaps, assessment completion, longitudinal growth and
+          intervention views arrive in later phases.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="api-status-title">
+        <h2 id="api-status-title">API status</h2>
+        <p id="api-status" class="status status--pending" aria-live="polite">Checking&hellip;</p>
+        <dl id="api-details" hidden>
+          <div><dt>Service</dt><dd id="d-service"></dd></div>
+          <div><dt>Version</dt><dd id="d-version"></dd></div>
+          <div><dt>Data mode</dt><dd id="d-mode"></dd></div>
+          <div><dt>Environment</dt><dd id="d-env"></dd></div>
+        </dl>
+      </section>
+
+      <section class="card" aria-labelledby="roadmap-title">
+        <h2 id="roadmap-title">Planned views</h2>
+        <ul class="plain">
+          <li>Proficiency gaps by school, grade, subject and period</li>
+          <li>Assessment completion monitoring</li>
+          <li>Longitudinal student performance</li>
+          <li>Intervention prioritization (decision support only)</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

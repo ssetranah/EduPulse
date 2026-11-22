@@ -1,0 +1,6 @@
+tenant_id,assessment_id,assessment_name,subject,administration_window,window_start,window_end,scale_min,scale_max,synthetic_marker
+tenant-syn-01,SYN-ASM-ELA-BOY-2025,Synthetic Interim ELA (BOY),ELA,BOY,2025-09-15,2025-09-24,200,800,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-ASM-MATH-BOY-2025,Synthetic Interim MATH (BOY),MATH,BOY,2025-09-15,2025-09-24,200,800,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-ASM-ELA-MOY-2025,Synthetic Interim ELA (MOY),ELA,MOY,2026-01-20,2026-01-29,200,800,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-ASM-MATH-MOY-2025,Synthetic Interim MATH (MOY),MATH,MOY,2026-01-20,2026-01-29,200,800,SYNTHETIC_TEST_DATA
+tenant-syn-02,SYN-ASM-ELA-BOY-2025,Synthetic Interim ELA (BOY),ELA,BOY,2025-09-15,2025-09-24,200,800,SYNTHETIC_TEST_DATA

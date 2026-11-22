@@ -1,0 +1,39 @@
+# Secrets and local config -- never commit real credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated / local data (synthetic data is regenerated, never committed)
+data/
+*.duckdb
+*.duckdb.wal
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/profiles.yml
+
+# Node / web tooling
+node_modules/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+Claude outputs/

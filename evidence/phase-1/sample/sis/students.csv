@@ -1,0 +1,6 @@
+tenant_id,school_id,student_id,state_student_id,first_name,last_name,birth_date,grade_level,gender,race_ethnicity,english_learner,special_education,economically_disadvantaged,enrollment_start_date,enrollment_status,synthetic_marker
+tenant-syn-01,SYN-T01-SC01,SYN-T01-ST00001,SYN010000001,Gus,Selstone,2016-04-18,04,NON_BINARY,HISPANIC_OR_LATINO,False,False,False,2025-08-25,ACTIVE,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC01,SYN-T01-ST00002,SYN010000002,Quinn,Ivcroft,2019-01-21,01,NON_BINARY,TWO_OR_MORE_RACES,False,True,False,2025-08-25,ACTIVE,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC01,SYN-T01-ST00003,SYN010000003,Jules,Lunwick,2015-03-11,05,FEMALE,WHITE,False,True,False,2025-08-25,ACTIVE,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC01,SYN-T01-ST00004,SYN010000004,Yara,Wenvale,2018-03-18,02,NON_BINARY,TWO_OR_MORE_RACES,False,False,False,2025-08-25,ACTIVE,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC01,SYN-T01-ST00005,SYN010000005,Pax,Orcroft,2017-12-11,03,FEMALE,NATIVE_HAWAIIAN_OR_PACIFIC_ISLANDER,False,False,True,2025-08-25,ACTIVE,SYNTHETIC_TEST_DATA

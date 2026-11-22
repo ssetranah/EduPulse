@@ -1,0 +1,6 @@
+tenant_id,school_id,school_name,school_type,lowest_grade,highest_grade,city,state_code,postal_code,synthetic_marker
+tenant-syn-01,SYN-T01-SC01,Stonebridge Elementary School (Synthetic),ELEMENTARY,KG,05,Synthville,ZZ,00000,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC02,Willowmere Middle School (Synthetic),MIDDLE,06,08,Synthville,ZZ,00000,SYNTHETIC_TEST_DATA
+tenant-syn-01,SYN-T01-SC03,Ambergate High School (Synthetic),HIGH,09,12,Synthville,ZZ,00000,SYNTHETIC_TEST_DATA
+tenant-syn-02,SYN-T02-SC01,Stonebridge Elementary School (Synthetic),ELEMENTARY,KG,05,Synthville,ZZ,00000,SYNTHETIC_TEST_DATA
+tenant-syn-02,SYN-T02-SC02,Maple Hollow Middle School (Synthetic),MIDDLE,06,08,Synthville,ZZ,00000,SYNTHETIC_TEST_DATA

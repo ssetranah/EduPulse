@@ -1,0 +1,119 @@
+{
+  "phase": 1,
+  "collected_at_utc": "2026-11-21T23:24:50+00:00",
+  "environment": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "tools_available": {
+      "ruff": true,
+      "docker_cli": true,
+      "dbt": false,
+      "duckdb": false,
+      "fastapi": false
+    }
+  },
+  "tests": {
+    "unit": {
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.67,
+      "passed": true
+    },
+    "integration": {
+      "tests": 41,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.86,
+      "passed": true
+    },
+    "data_quality": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.47,
+      "passed": true
+    },
+    "all": {
+      "tests": 95,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.11,
+      "passed": true
+    }
+  },
+  "lint": {
+    "status": "pass",
+    "ruff_version": "ruff 0.16.9",
+    "check_ok": true,
+    "format_ok": true
+  },
+  "synthetic_data": {
+    "marker": "SYNTHETIC_TEST_DATA",
+    "config": {
+      "seed": 20260101,
+      "tenants": 2,
+      "schools_per_tenant": 3,
+      "students_per_school": 60,
+      "school_year_start": 2025,
+      "attendance_days": 30,
+      "lms_events_per_student": 20,
+      "defect_rate": 0.0
+    },
+    "total_rows": 22372,
+    "rows_per_file": {
+      "sis/schools.csv": 6,
+      "sis/students.csv": 360,
+      "assessment/assessment_definitions.csv": 8,
+      "assessment/assessment_results.csv": 1440,
+      "attendance/attendance_daily.csv": 10800,
+      "grading/grades.jsonl": 2880,
+      "lms/lms_activity.jsonl": 6832,
+      "intervention/interventions.csv": 46
+    },
+    "validator_problems": [],
+    "deterministic_across_runs": true,
+    "files_sha256": {
+      "sis/schools.csv": "60d7553a771f2ac1b8666276528b2f9fe30ef7093d2d5f806f9e0605d3aa7e88",
+      "sis/students.csv": "cbcacb4e084957dbbabfcf0236019dba72c19970bb9d234f6c6f2828708e9b82",
+      "assessment/assessment_definitions.csv": "9fdc558da8bd03335a57ce302e21fea5aecf8c9c0194a1fc9ae56e96a8b8a343",
+      "assessment/assessment_results.csv": "160a85ef2f59e3a8239804b7569064602ed8037cb9f0fa2ca2ee9c3d93e3bbdc",
+      "attendance/attendance_daily.csv": "da48e61b84ecf7053b0cbc5fc811c8e5b8cc85df5693e3f7ad6905958e4a607d",
+      "grading/grades.jsonl": "3fa7fb630d5a39dd6277f7ba29bbec36535042080a38cf6bc0eed7506eac23d4",
+      "lms/lms_activity.jsonl": "6e2d4d1039e303d5809ec36e04b6ab20f5f0b896da7396646686cfd88c976342",
+      "intervention/interventions.csv": "17558a07e0d063e82a70592ab6bef4ae38e7e7fa7c89298dcbb06d7932ba133c"
+    }
+  },
+  "docker_compose": {
+    "config_valid": true,
+    "config_stderr": null,
+    "docker_daemon_reachable": false,
+    "images_built_or_run": "not_run"
+  },
+  "dbt": {
+    "parse": "not_run",
+    "reason": "dbt CLI not installed in this environment"
+  },
+  "ci": {
+    "github_actions_run": "not_run",
+    "reason": "repository not pushed to GitHub"
+  },
+  "screenshots": [
+    [
+      "dashboard-dark.png",
+      "60de3088cfa8f1f08f8c8683495656a8525c135474acb363ef1beb2076fb838e"
+    ],
+    [
+      "dashboard-desktop.png",
+      "115a117c8cf4400feb6991cc30abd5a44d6112fd6fb72117bc3265fa7deb28c9"
+    ],
+    [
+      "dashboard-mobile.png",
+      "8246e1428833b90bcb789c8b58b2ee6de1047e5e4f7b19849a4a4f7725c149ae"
+    ]
+  ]
+}

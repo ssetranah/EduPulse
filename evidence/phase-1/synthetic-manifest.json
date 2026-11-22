@@ -1,0 +1,86 @@
+{
+  "config": {
+    "attendance_days": 30,
+    "defect_rate": 0.0,
+    "lms_events_per_student": 20,
+    "school_year_start": 2025,
+    "schools_per_tenant": 3,
+    "seed": 20260101,
+    "students_per_school": 60,
+    "tenants": 2
+  },
+  "defects_injected": {
+    "completed_assessments_missing_score": 0,
+    "duplicate_attendance_rows": 0
+  },
+  "files": [
+    {
+      "entity": "schools",
+      "format": "csv",
+      "path": "sis/schools.csv",
+      "rows": 6,
+      "sha256": "60d7553a771f2ac1b8666276528b2f9fe30ef7093d2d5f806f9e0605d3aa7e88",
+      "source_system": "sis"
+    },
+    {
+      "entity": "students",
+      "format": "csv",
+      "path": "sis/students.csv",
+      "rows": 360,
+      "sha256": "cbcacb4e084957dbbabfcf0236019dba72c19970bb9d234f6c6f2828708e9b82",
+      "source_system": "sis"
+    },
+    {
+      "entity": "assessment_definitions",
+      "format": "csv",
+      "path": "assessment/assessment_definitions.csv",
+      "rows": 8,
+      "sha256": "9fdc558da8bd03335a57ce302e21fea5aecf8c9c0194a1fc9ae56e96a8b8a343",
+      "source_system": "assessment"
+    },
+    {
+      "entity": "assessment_results",
+      "format": "csv",
+      "path": "assessment/assessment_results.csv",
+      "rows": 1440,
+      "sha256": "160a85ef2f59e3a8239804b7569064602ed8037cb9f0fa2ca2ee9c3d93e3bbdc",
+      "source_system": "assessment"
+    },
+    {
+      "entity": "attendance_daily",
+      "format": "csv",
+      "path": "attendance/attendance_daily.csv",
+      "rows": 10800,
+      "sha256": "da48e61b84ecf7053b0cbc5fc811c8e5b8cc85df5693e3f7ad6905958e4a607d",
+      "source_system": "attendance"
+    },
+    {
+      "entity": "grades",
+      "format": "jsonl",
+      "path": "grading/grades.jsonl",
+      "rows": 2880,
+      "sha256": "3fa7fb630d5a39dd6277f7ba29bbec36535042080a38cf6bc0eed7506eac23d4",
+      "source_system": "grading"
+    },
+    {
+      "entity": "lms_activity",
+      "format": "jsonl",
+      "path": "lms/lms_activity.jsonl",
+      "rows": 6832,
+      "sha256": "6e2d4d1039e303d5809ec36e04b6ab20f5f0b896da7396646686cfd88c976342",
+      "source_system": "lms"
+    },
+    {
+      "entity": "interventions",
+      "format": "csv",
+      "path": "intervention/interventions.csv",
+      "rows": 46,
+      "sha256": "17558a07e0d063e82a70592ab6bef4ae38e7e7fa7c89298dcbb06d7932ba133c",
+      "source_system": "intervention"
+    }
+  ],
+  "generator": "ingestion.synthetic",
+  "schema_version": "1.0.0",
+  "synthetic_marker": "SYNTHETIC_TEST_DATA",
+  "total_rows": 22372
+}
